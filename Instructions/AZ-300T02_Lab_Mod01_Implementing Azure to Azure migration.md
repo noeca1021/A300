@@ -56,9 +56,9 @@ The main tasks for this exercise are as follows:
    New-AzureRmResourceGroup -Name az3000601-LabRG -Location <Azure region>
    ```
 
-1. From the Cloud Shell pane, upload the Azure Resource Manager template **F:\\AZ300\\Labs\\06\\azuredeploy06.json** into the home directory.
+1. From the Cloud Shell pane, upload the Azure Resource Manager template **/allfiles/AZ-300T02/Module_01/azuredeploy06.json** into the home directory.
 
-1. From the Cloud Shell pane, upload the parameter file **F:\\AZ300\\Labs\\06\\azuredeploy06.parameters.json** into the home directory.
+1. From the Cloud Shell pane, upload the parameter file **/allfiles/AZ-300T02/Module_01/azuredeploy06.parameters.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
