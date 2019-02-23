@@ -58,9 +58,9 @@ The main tasks for this exercise are as follows:
    New-AzureRmResourceGroup -Name az3000901-LabRG -Location <Azure region>
    ```
 
-1. From the Cloud Shell pane, upload the Azure Resource Manager template **F:\\AZ300\\Labs\\09\\azuredeploy09.json** into the home directory.
+1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T03\\Module_04\\azuredeploy09.json** into the home directory.
 
-1. From the Cloud Shell pane, upload the parameter file **F:\\AZ300\\Labs\\09\\azuredeploy09.parameters.json** into the home directory.
+1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T03\\Module_04\\azuredeploy09.parameters.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Ubuntu by running:
 
@@ -117,7 +117,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the Microsoft Edge window, start a **PowerShell** session within the **Cloud Shell**. 
 
-1. From the Cloud Shell pane, upload the Azure Resource Manager template **F:\\AZ300\\Labs\\09\\customRoleDefinition09.json** into the home directory.
+1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T03\\Module_04\\customRoleDefinition09.json** into the home directory.
 
 1. From the Cloud Shell pane, run the following to replace the **$SUBSCRIPTION\_ID** placeholder with the ID value of the Azure subscription:
 
