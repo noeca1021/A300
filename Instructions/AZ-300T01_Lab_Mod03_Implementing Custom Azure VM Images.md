@@ -124,7 +124,7 @@ The main tasks for this exercise are as follows:
    LOCATION=$(echo $RG | jq .location | tr -d '"')
    ```
 
-1. From the Cloud Shell pane, upload the Packer template **F:\\AZ300\\Labs\\03\\template03.json** into the home directory.
+1. From the Cloud Shell pane, upload the Packer template **/allfiles/AZ-300T01/Module_03/template03.json** into the home directory.
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **client_id** parameter with the value of the **$CLIENT_ID** variable in the Packer template:
 
