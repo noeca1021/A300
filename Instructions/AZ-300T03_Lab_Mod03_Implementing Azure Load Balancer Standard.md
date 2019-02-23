@@ -62,9 +62,9 @@ The main tasks for this exercise are as follows:
    az group create --name az3000801-LabRG --location <Azure region>
    ```
 
-1. From the Cloud Shell pane, upload the Azure Resource Manager template **F:\\AZ300\\Labs\\08\\azuredeploy0801.json** into the home directory.
+1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T03\\Module_03\\azuredeploy0801.json** into the home directory.
 
-1. From the Cloud Shell pane, upload the parameter file **F:\\AZ300\\Labs\\08\\azuredeploy0801.parameters.json** into the home directory.
+1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T03\\Module_03\\azuredeploy0801.parameters.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy a pair of Azure VMs hosting Windows Server 2016 Datacenter by running:
 
@@ -298,9 +298,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the Microsoft Edge window, start a **Bash** session within the **Cloud Shell**. 
 
-1. From the Cloud Shell pane, upload the Azure Resource Manager template **F:\\AZ300\\Labs\\08\\azuredeploy0802.json** into the home directory.
+1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T03\\Module_03\\azuredeploy0802.json** into the home directory.
 
-1. From the Cloud Shell pane, upload the parameter file **F:\\AZ300\\Labs\\08\\azuredeploy0802.parameters.json** into the home directory.
+1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T03\\Module_03\\azuredeploy0802.parameters.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy a pair of Azure VMs hosting Windows Server 2016 Datacenter by running:
 
