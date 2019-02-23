@@ -63,9 +63,9 @@ The main tasks for this exercise are as follows:
    az group create --resource-group az3000402-LabRG --location <Azure region>
    ```
 
-1. From the Cloud Shell pane, upload the first Azure Resource Manager template **F:\\AZ300\\Labs\\04\\azuredeploy0401.json** into the home directory.
+1. From the Cloud Shell pane, upload the first Azure Resource Manager template **\\allfiles\\AZ-300T02\\Module_03\\azuredeploy0401.json** into the home directory.
 
-1. From the Cloud Shell pane, upload the parameter file **F:\\AZ300\\Labs\\04\\azuredeploy04.parameters.json** into the home directory.
+1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T02\\Module_03\\azuredeploy04.parameters.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy the two Azure VMs hosting Windows Server 2016 Datacenter into the first virtual network by running:
 
@@ -78,7 +78,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Create the second Azure virtual network environment by using an Azure Resource Manager template
 
-1. From the Cloud Shell pane, upload the second Azure Resource Manager template **F:\\AZ300\\Labs\\04\\azuredeploy0402.json** into the home directory.
+1. From the Cloud Shell pane, upload the second Azure Resource Manager template **\\allfiles\\AZ-300T02\\Module_03\\azuredeploy0402.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter into the second virtual network by running:
 
