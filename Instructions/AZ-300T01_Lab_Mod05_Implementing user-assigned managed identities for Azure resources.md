@@ -44,7 +44,7 @@ The main tasks for this exercise are as follows:
 
 1. If you are presented with the **You have no storage mounted** message, configure storage using the following settings:
 
-    - Subsciption: the name of the target Azure subscription
+    - Subscription: the name of the target Azure subscription
 
     - Cloud Shell region: the name of the Azure region that is available in your subscription and which is closest to the lab location
 
