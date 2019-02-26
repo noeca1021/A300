@@ -48,14 +48,14 @@ The main tasks for this exercise are as follows:
 
     - Vm Sku: **Standard_D1_v2**
 
-    - Vmss Name: **az01-vmss**
+    - Vmss Name: **az01-vmss-[your name in lowercase here]**
 
     - Instance count: **1**
 
     - Admin Username: **student**
 
     - Admin Password: **Pa55w.rd1234**
-
+    
 1. Wait for the deployment to complete. This will take about 5 minutes.
 
 
