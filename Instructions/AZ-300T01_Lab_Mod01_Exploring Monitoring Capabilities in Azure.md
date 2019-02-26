@@ -70,11 +70,11 @@ The main tasks for this exercise are as follows:
 
     - Resource group: the name of a new resource group **az3000101-LabRG**
 
-    - Location: the name of the Azure region that is available in your subscription and which is closest to the lab location
+    - Location: the name of the Azure region that you referenced when running `Test-AzDnsAvailability` earlier in this task
 
     - Vm Sku: **Standard_D1_v2**
 
-    - Vmss Name: the custom label you identified earlier in this task
+    - Vmss Name: the custom label you identified when running `Test-AzDnsAvailability` earlier in this task
 
     - Instance count: **1**
 
@@ -121,7 +121,7 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the **Monitor** blade and, from there, switch to the **Monitor - Metrics** blade.
 
-1. On the **Monitor - Metrics** blade, use the filter to display **Avg Percentage CPU** metric of the blade of the VM scale set resource you provisioned earlier in this lab.
+1. On the **Monitor - Metrics** blade, use the filter to display **Avg Percentage CPU** metric of the blade of the VM scale set resource you provisioned in the previous exercise of this lab.
 
 1. Review the resulting chart and note the average percentage CPU within the last few minutes.
 
@@ -129,7 +129,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Monitor - Alerts** blade, create a new alert rule with the following settings:
 
-    - Alert target: the VM scale set you provisioned earlier in this lab
+    - Alert target: the VM scale set you provisioned in the previous exercise of this lab
     
     - Signal Name: Percentage CPU
 
@@ -171,7 +171,7 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the **Monitor - Autoscale** blade. 
 
-1. In the list of resources capable of autoscaling, click the VM scale set you provisioned earlier in this lab. 
+1. In the list of resources capable of autoscaling, click the VM scale set you provisioned in the previous exerrcise of this lab. 
 
 1. On the **Autoscale setting** blade, click the **Notify** tab heading, configure the following settings, and save your changes:
 
