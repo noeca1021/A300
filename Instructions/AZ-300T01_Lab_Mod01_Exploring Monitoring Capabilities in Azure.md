@@ -34,6 +34,32 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Deploy an Azure VM scale set by using an Azure QuickStart template
 
+1. From the lab virtual machine, start Microsoft Edge and browse to the Azure portal at http://portal.azure.com and sign in by using the Microsoft account that has the Owner role in the target Azure subscription.
+
+1. In the Azure portal, in the Microsoft Edge window, start a PowerShell session within the Cloud Shell.
+
+1. If you are presented with the **You have no storage mounted** message, configure storage using the following settings:
+
+    - Subsciption: the name of the target Azure subscription
+
+    - Cloud Shell region: the name of the Azure region that is available in your subscription and which is closest to the lab location
+
+    - Resource group: the name of a new resource group **az3000100-LabRG**
+
+    - Storage account: a name of a new storage account
+
+    - File share: a name of a new file share
+
+1. From the Cloud Shell pane, run the following to identify a unique DNS domain name (substitute the placeholder <custom-label> with any alphanumeric string starting with a letter and no longer than 9 characters, which is likely to be unique and the placeholder <location> with the name of the Azure region into which you intend to deploy resources in this lab):
+
+    ```
+    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location'>
+    ```
+    
+1. Verify that the command returned **True**. If not, rerun the same command with a different value of the <custom-label> until the command returns True. 
+  
+1. Note the value of the <custom-label> that resulted in the successful outcome. You will need it in the next task.
+  
 1. From the lab virtual machine, start Microsoft Edge and browse to the Azure QuickStart template that deploys autoscale demo app on Ubuntu 16.04 at [**https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale**](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale).
 
 1. Click **Deploy to Azure** and, when prompted, sign in by using the Microsoft account that has the Owner role in the target Azure subscription.
@@ -48,7 +74,7 @@ The main tasks for this exercise are as follows:
 
     - Vm Sku: **Standard_D1_v2**
 
-    - Vmss Name: **az01-vmss-[your name in lowercase here]**
+    - Vmss Name: the custom label you identified earlier in this task
 
     - Instance count: **1**
 
@@ -61,9 +87,9 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Review autoscaling settings of the Azure VM scale set
   
-1. In Azure Portal, navigate to the **az01-vmss** blade, representing the newly deployed Azure VM scale set. 
+1. In Azure Portal, navigate to the blade representing the newly deployed Azure VM scale set. 
 
-1. From the **az01-vmss** blade, navigate to the **az01-vmss - Scaling**.
+1. From the VM scale set blade, navigate to the its **Scaling** blade.
 
 1. Note that the Azure VM scale set is configured to scale dynamically based on a metric using the following criteria:
 
@@ -95,7 +121,7 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the **Monitor** blade and, from there, switch to the **Monitor - Metrics** blade.
 
-1. On the **Monitor - Metrics** blade, use the filter to display **Avg Percentage CPU** metric of the **az01-vmss** VM scale set resource.
+1. On the **Monitor - Metrics** blade, use the filter to display **Avg Percentage CPU** metric of the blade of the VM scale set resource you provisioned earlier in this lab.
 
 1. Review the resulting chart and note the average percentage CPU within the last few minutes.
 
@@ -103,7 +129,7 @@ The main tasks for this exercise are as follows:
 
 1. From the **Monitor - Alerts** blade, create a new alert rule with the following settings:
 
-    - Alert target: **az01-vmss**
+    - Alert target: the VM scale set you provisioned earlier in this lab
     
     - Signal Name: Percentage CPU
 
@@ -145,7 +171,7 @@ The main tasks for this exercise are as follows:
   
 1. In the Azure portal, navigate to the **Monitor - Autoscale** blade. 
 
-1. In the list of resources capable of autoscaling, click **az01-vmss**. 
+1. In the list of resources capable of autoscaling, click the VM scale set you provisioned earlier in this lab. 
 
 1. On the **Autoscale setting** blade, click the **Notify** tab heading, configure the following settings, and save your changes:
 
@@ -158,27 +184,27 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Test Azure VM scale set monitoring and alerting.
   
-1. In the Azure portal, navigate to the **az01-vmss** blade, representing the Azure VM scale set you deployed in the previous exercise of this lab.
+1. In the Azure portal, navigate to the blade representing the Azure VM scale set you deployed in the previous exercise of this lab.
 
-1. From the **az01-vmss** blade, identify the value of the **Public IP address** assigned to the front end of the load balancer associated with the VM scale set.
+1. From the VM scale set blade, identify the value of the **Public IP address** assigned to the front end of the load balancer associated with the VM scale set.
 
 1. From the lab computer, start Microsoft Edge and browse to **http://*Public IP address*:9000** (where ***Public IP address*** is the IP address you identified in the previous step)
 
-1. On the **Worker interface on az01-vmss000000** page, click the **Start work** link.
+1. On the **Worker interface** page, click the **Start work** link.
 
-1. Use the **CPU (average)** chart on the **az01-vmss** blade to monitor changes to the CPU utilization.
+1. Use the **CPU (average)** chart on the VM scale set blade to monitor changes to the CPU utilization.
 
     > **Note**: Alternatively, you can navigate back to the **Monitor - Metrics** blade and use the filter to display **Avg Percentage CPU** metric of the **az01-vmss** VM scale set resource.
 
     > **Note**: You should receive an alert regarding increased CPU utilization within a couple of minutes
 
-1. Switch to the **az01-vmss - Instances** blade in order to identify the number of instances in the **az01-vmss** VM scale set.
+1. Switch to the **Instances** blade of the VM scale set in order to identify the number of its instances.
 
-    > **Note**: Alternatively, you can navigate back to the **Monitor - Autoscale** blade, in the list of resources capable of autoscaling, click **az01-vmss**, on the **Autoscale settings** blade, click **Run history**, and then review the list of autoscale events.
+    > **Note**: Alternatively, you can navigate back to the **Monitor - Autoscale** blade, in the list of resources capable of autoscaling, click the name of the VM scale set, on the **Autoscale settings** blade, click **Run history**, and then review the list of autoscale events.
 
     > **Note**: Autoscaling should be triggered within a couple of minutes. 
 
-1.  Switch to the Microsoft Edge window displaying **Worker interface on az01-vmss000000** page and click the **Stop work** link.
+1.  Switch to the Microsoft Edge window displaying worker instances page and click the **Stop work** link.
 
 1.  Monitor decrease in CPU utilization and scaling in events using the same methods that you used when scaling out the VM scale set.
 
