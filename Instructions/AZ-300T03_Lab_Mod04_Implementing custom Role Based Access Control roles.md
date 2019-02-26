@@ -189,9 +189,9 @@ The main tasks for this exercise are as follows:
 
 1. On the **az3000901-LabRG** blade, click **Access Control (IAM)**.
 
-1. On the **az3000901-LabRG - Access Control (IAM)** blade, click **+ Add**.
+1. On the **az3000901-LabRG - Access Control (IAM)** blade, click **+ Add** and select the **Add role assignment** option.
 
-1. On the **Add permissions** blade, specify the following settings and click **Save**:
+1. On the **Add role assignment** blade, specify the following settings and click **Save**:
 
     - Role: **Virtual Machine Operator (Custom)**
 
