@@ -56,7 +56,7 @@ The main tasks for this exercise are as follows:
 
     - Secure transfer required: **Disabled**
 
-    - Virtual network: **None**
+    - Virtual network: **All networks**
 
     - Hierarchical namespace: **Disabled**
 
@@ -157,7 +157,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to identify the storage account resource you created in the first exercise of this lab and store it in a variable:
 
    ```
-   $storageAccount = (Get-AzureRmStorageAccount -ResourceGroupName az3000201-LabRG)[0]
+   $storageAccount = (Get-AzStorageAccount -ResourceGroupName az3000201-LabRG)[0]
    ```
 
 1. From the Cloud Shell pane, run the following to establish security context granting full control to the storage account:
@@ -169,19 +169,19 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to create a blob-specific SAS token based on the access policy you created in the previous task:
 
    ```
-   $sasToken = New-AzureStorageBlobSASToken -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Policy labcontainer-read -Context $keyContext
+   $sasToken = New-AzStorageBlobSASToken -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Policy labcontainer-read -Context $keyContext
    ```
 
 1. From the Cloud Shell pane, run the following to establish security context based on the newly created SAS token: 
 
    ```
-   $sasContext = New-AzureStorageContext $storageAccount.StorageAccountName -SasToken $sasToken
+   $sasContext = New-AzStorageContext $storageAccount.StorageAccountName -SasToken $sasToken
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve properties of the blob: 
 
    ```
-   Get-AzureStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Context $sasContext
+   Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Context $sasContext
    ```
 
 1. Verify that you successfully accessed the blob.
@@ -200,7 +200,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, re-run the following to attempt retrieving properties of the blob: 
 
    ```
-   Get-AzureStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png'
+   Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png'
    ```
 
 1. Verify that you no longer can access the blob.
