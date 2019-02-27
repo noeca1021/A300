@@ -130,10 +130,10 @@ The main tasks for this exercise are as follows:
    Install-Module -Name PowerShellGet -Force
    ```
 
-1. From the PowerShell prompt, run the following to install the latest version of the AzureRM module (press Enter if prompted for confirmation):
+1. From the PowerShell prompt, run the following to install the latest version of the Az module (press Enter if prompted for confirmation):
 
    ```
-   Install-Module -Name AzureRM -Force
+   Install-Module -Name Az -AllowClobber
    ```
 
 1. Exit the current PowerShell session by typing `exit` and pressing Enter and then start it again by typing at the command prompt `PowerShell` and pressing Enter.
@@ -147,7 +147,7 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
 
    ```
-   Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+   Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
    ```
 
 #### Task 2: Validate functionality of user-assigned managed identity from the Azure VM.
@@ -155,13 +155,13 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to sign-in as the user-assigned managed identity:
 
    ```
-   Add-AzureRmAccount -Identity
+   Add-AzAccount -Identity
    ```
 
 1. From the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
    ```
-   (Get-AzureRMVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
+   (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
 1. Note the error message. As the message states, the current security context does not grant sufficent authorization to the target resource. To resolve this issue, switch to the Azure portal, navigate to the **az3000501-LabRG - Access control (IAM)** blade. 
@@ -171,14 +171,14 @@ The main tasks for this exercise are as follows:
 1. Switch back to the Remote Desktop session, and, from the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
    ```
-   (Get-AzureRMVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
+   (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
 1. From the PowerShell prompt, run the following to create a public IP address resource:
 
    ```
-   $location = (Get-AzureRmResourceGroup -Name az3000502-LabRG).Location
-   New-AzureRmPublicIpAddress -Name az3000502-pip -ResourceGroupName az3000502-LabRG -AllocationMethod Dynamic -Location $location  
+   $location = (Get-AzResourceGroup -Name az3000502-LabRG).Location
+   New-AzPublicIpAddress -Name az3000502-pip -ResourceGroupName az3000502-LabRG -AllocationMethod Dynamic -Location $location  
    ```
 
 1. Verify that the command completed successfully.
