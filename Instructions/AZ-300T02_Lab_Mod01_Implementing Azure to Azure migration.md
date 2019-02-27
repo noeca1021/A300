@@ -53,7 +53,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, create a resource group by running (replace the `<Azure region>` placeholder with the name of the Azure region that is available in your subscription and which is closest to the lab location)
 
    ```
-   New-AzureRmResourceGroup -Name az3000601-LabRG -Location <Azure region>
+   New-AzResourceGroup -Name az3000601-LabRG -Location <Azure region>
    ```
 
 1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T02\\Module_01\\azuredeploy06.json** into the home directory.
@@ -63,7 +63,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
    ```
-   New-AzureRmResourceGroupDeployment -ResourceGroupName az3000601-LabRG -TemplateFile azuredeploy06.json -TemplateParameterFile azuredeploy06.parameters.json
+   New-AzResourceGroupDeployment -ResourceGroupName az3000601-LabRG -TemplateFile azuredeploy06.json -TemplateParameterFile azuredeploy06.parameters.json
    ```
 
     > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. 
