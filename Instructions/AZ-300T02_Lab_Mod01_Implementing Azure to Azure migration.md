@@ -101,7 +101,7 @@ The main tasks for this exercise are as follows:
 
 1. In the the Azure portal, navigate to the blade of the newly provisioned Azure Recovery Services vault.
 
-1. Set the protection goal to **Azure VMs to Azure**.
+1. On the Recovery Services vault blade, click the **+ Replicate** button and set the protection goal to **Azure VMs to Azure**.
 
 1. Enable replication by specifying the following settings:
 
