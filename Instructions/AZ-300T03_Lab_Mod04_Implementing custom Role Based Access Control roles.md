@@ -55,7 +55,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, create a resource groups by running (replace the `<Azure region>` placeholder with the name of the Azure region that is available in your subscription and which is closest to the lab location)
 
    ```
-   New-AzureRmResourceGroup -Name az3000901-LabRG -Location <Azure region>
+   New-AzResourceGroup -Name az3000901-LabRG -Location <Azure region>
    ```
 
 1. From the Cloud Shell pane, upload the Azure Resource Manager template **\\allfiles\\AZ-300T03\\Module_04\\azuredeploy09.json** into the home directory.
@@ -65,7 +65,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy an Azure VM hosting Ubuntu by running:
 
    ```
-   New-AzureRmResourceGroupDeployment -ResourceGroupName az3000901-LabRG -TemplateFile azuredeploy09.json -TemplateParameterFile azuredeploy09.parameters.json
+   New-AzResourceGroupDeployment -ResourceGroupName az3000901-LabRG -TemplateFile azuredeploy09.json -TemplateParameterFile azuredeploy09.parameters.json
    ```
 
     > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. 
@@ -122,20 +122,20 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to replace the **$SUBSCRIPTION\_ID** placeholder with the ID value of the Azure subscription:
 
    ```
-   $subscription_id = (Get-AzureRmSubscription).Id
+   $subscription_id = (Get-AzSubscription).Id
    (Get-Content -Path $HOME/customRoleDefinition09.json) -Replace 'SUBSCRIPTION_ID', "$subscription_id" | Set-Content -Path $HOME/customRoleDefinition09.json
    ```
  
 1. From the Cloud Shell pane, run the following to create the custom role definition:
 
    ```
-   New-AzureRmRoleDefinition -InputFile $HOME/customRoleDefinition09.json
+   New-AzRoleDefinition -InputFile $HOME/customRoleDefinition09.json
    ```
 
 1. From the Cloud Shell pane, run the following to verify that the role was created successfully:
 
    ```
-   Get-AzureRmRoleDefinition -Name 'Virtual Machine Operator (Custom)'
+   Get-AzRoleDefinition -Name 'Virtual Machine Operator (Custom)'
    ```
 
 1. Close the Cloud Shell pane.
