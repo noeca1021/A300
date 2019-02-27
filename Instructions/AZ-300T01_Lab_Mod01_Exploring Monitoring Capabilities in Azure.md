@@ -22,8 +22,7 @@ User Name: **Student**
 
 Password: **Pa55w.rd**
 
-
-## Exercise 1: Deploy Azure VM scale sets
+# Exercise 1: Deploy Azure VM scale sets
   
 The main tasks for this exercise are as follows:
 
