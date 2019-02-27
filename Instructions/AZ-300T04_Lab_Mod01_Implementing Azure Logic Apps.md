@@ -60,7 +60,7 @@ The main tasks for this exercise are as follows:
 
     - Secure transfer required: **Enabled**
 
-    - Virtual network: **None**
+    - Virtual network: **All networks**
 
     - Hierarchical namespace: **Disabled**
 
@@ -105,13 +105,13 @@ The main tasks for this exercise are as follows:
    ```
    $password = 'Pa55w.rd1234'
    $securePassword = ConvertTo-SecureString -Force -AsPlainText -String $password
-   $aadApp30007 = New-AzureRmADApplication -DisplayName 'aadApp30007' -HomePage 'http://aadApp30007' -IdentifierUris 'http://aadApp30007' -Password $securePassword
+   $aadApp30007 = New-AzADApplication -DisplayName 'aadApp30007' -HomePage 'http://aadApp30007' -IdentifierUris 'http://aadApp30007' -Password $securePassword
    ```
 
 1. From the Cloud Shell pane, run the following to create a new Azure AD service principal associated with the application you created in the previous step:
 
    ```
-   New-AzureRmADServicePrincipal -ApplicationId $aadApp30007.ApplicationId.Guid
+   New-AzADServicePrincipal -ApplicationId $aadApp30007.ApplicationId.Guid
    ```
 
 1. In the output of the **New-AzureRmADServicePrincipal** command, note the value of the **ApplicationId** property. You will need this in the next exercise of this lab.
@@ -119,7 +119,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to identify the value of the **Id** property of the current Azure subscription and the value of the **TenantId** property of the Azure AD tenant associated with that subscription (you will also need them in the next exercise of this lab):
 
    ```
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
 1. Close the Cloud Shell pane.
@@ -141,7 +141,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to register the Microsoft.EventGrid resource provider:
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+   Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
    ```
 
 1. Close the Cloud Shell pane.
