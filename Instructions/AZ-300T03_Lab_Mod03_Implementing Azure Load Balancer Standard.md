@@ -81,8 +81,14 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, create a new Azure Load Balancer with the following settings:
 
+    - Subsciption: the name of the target Azure subscription
+
+    - Resource group: **az3000801-LabRG**
+    
     - Name: **az3000801-lb**
 
+    - Region: the name of the Azure region in which you deployed Azure VMs in the previous task of this exercise
+    
     - Type: **Public**
 
     - SKU: **Standard**
@@ -90,12 +96,6 @@ The main tasks for this exercise are as follows:
     - Public IP address: **Create new** named **az3000801-lb-pip01**
 
     - Availability zone: **Zone-redundant**
-
-    - Subsciption: the name of the target Azure subscription
-
-    - Resource group: **az3000801-LabRG**
-
-    - Location: the name of the Azure region in which you deployed Azure VMs in the previous task of this exercise
 
 
 #### Task 3: Create a load balancing rule of Azure Load Balancer Standard
