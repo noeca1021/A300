@@ -200,7 +200,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, re-run the following to attempt retrieving properties of the blob: 
 
    ```
-   Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png'
+   Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Context $sasContext
    ```
 
 1. Verify that you no longer can access the blob.
