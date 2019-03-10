@@ -238,7 +238,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Create Event Subscription** blade, clear the **Subscribe to all event types** checkbox and, in the **Defined Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
 
-1. Click the **Select an endpoint** link. 
+1. In the **Endpoint Type** drop down list, ensure that **Web Hook** is selected and click the **Select an endpoint** link. 
 
 1. On the **Select Web Hook** blade, in the **Subscriber Endpoint**, paste the value of the **Callback url [POST]** of the Azure logic app you copied in the previous task and click **Confirm Selection**.
 
