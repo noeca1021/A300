@@ -195,8 +195,8 @@ The main tasks for this exercise are as follows:
 
     - Event Type Item - 2: **Microsoft.Resources.ResourceDeleteSuccess**
 
-1. Click **Show advanced options**, in the **Subscription Name** text box, type **event-subscription-az3000701** and click **Save**.
-
+1. Click **add parameter** and select **Subscription Name** (Then left-mouse click in the blank area next to the **add new item** button)
+1. In the **Subscription Name** text box, type **event-subscription-az3000701** and click **Save**.
 
 #### Task 2: Add an action to the Azure logic app
 
