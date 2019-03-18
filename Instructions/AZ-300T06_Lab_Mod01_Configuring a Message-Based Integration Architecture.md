@@ -1,4 +1,4 @@
-﻿# Devloping for the cloud
+﻿# Developing for the cloud
 # Lab: Configuring a Message-Based Integration Architecture
   
 ### Scenario
