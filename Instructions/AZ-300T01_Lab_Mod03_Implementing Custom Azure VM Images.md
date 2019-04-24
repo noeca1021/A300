@@ -100,7 +100,7 @@ The main tasks for this exercise are as follows:
    CLIENT_SECRET=$(echo $AAD_SP | jq .password | tr -d '"')
    ```
 
-1. From the Cloud Shell pane, run the following to retrieve the value of the service pricipal tenant ID and store it in a variable
+1. From the Cloud Shell pane, run the following to retrieve the value of the service principal tenant ID and store it in a variable
 
    ```
    TENANT_ID=$(echo $AAD_SP | jq .tenant | tr -d '"')
