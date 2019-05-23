@@ -65,7 +65,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy an Azure VM hosting Ubuntu by running:
 
    ```
-   New-AzResourceGroupDeployment -ResourceGroupName az3000901-LabRG -TemplateFile azuredeploy09.json -TemplateParameterFile azuredeploy09.parameters.json
+   New-AzResourceGroupDeployment -ResourceGroupName $home/az3000901-LabRG -TemplateFile $home/azuredeploy09.json -TemplateParameterFile azuredeploy09.parameters.json
    ```
 
     > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. 
