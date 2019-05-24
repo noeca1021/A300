@@ -308,8 +308,5 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to delete resource groups that host all resources that you provisioned in this lab
 
    ```
-   for RESOURCE_GROUP_NAME in 'az300T0602-LabRG' 'az300T0603-LabRG' 
-   do 
-      az group delete --name "${RESOURCE_GROUP_NAME}" --no-wait --yes
-   done
+for RESOURCE_GROUP_NAME in 'az300T0602-LabRG' 'az300T0603-LabRG' ; do     az group delete --name "${RESOURCE_GROUP_NAME}" --no-wait --yes; done
    ```
