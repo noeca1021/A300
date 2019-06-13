@@ -91,19 +91,19 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal appId and store it in a variable
 
    ```
-   CLIENT_ID=$(echo $AAD_SP | jq .appId | tr -d '"')
+   CLIENT_ID=$(echo $AAD_SP | jq -r .appId)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal password and store it in a variable
 
    ```
-   CLIENT_SECRET=$(echo $AAD_SP | jq .password | tr -d '"')
+   CLIENT_SECRET=$(echo $AAD_SP | jq -r .password)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal tenant ID and store it in a variable
 
    ```
-   TENANT_ID=$(echo $AAD_SP | jq .tenant | tr -d '"')
+   TENANT_ID=$(echo $AAD_SP | jq -r .tenant)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the subscription ID and store it in a variable:
@@ -115,7 +115,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to retrive the value of the resource group location and store it in a variable:
 
    ```
-   LOCATION=$(echo $RG | jq .location | tr -d '"')
+   LOCATION=$(echo $RG | jq -r .location)
    ```
 
 1. From the Cloud Shell pane, upload the Packer template **\\allfiles\\AZ-300T01\\Module_03\\template03.json** into the home directory.
