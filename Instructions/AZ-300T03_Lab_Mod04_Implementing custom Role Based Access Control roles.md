@@ -122,7 +122,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to replace the **$SUBSCRIPTION\_ID** placeholder with the ID value of the Azure subscription:
 
    ```
-   $subscription_id = (Get-AzSubscription).Id
+   $subscription_id = (Get-AzContext).Subscription.id
    (Get-Content -Path $HOME/customRoleDefinition09.json) -Replace 'SUBSCRIPTION_ID', "$subscription_id" | Set-Content -Path $HOME/customRoleDefinition09.json
    ```
  
