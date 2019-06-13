@@ -325,7 +325,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, from the Cloud Shell pane, run the following to create an Azure Load Balancer Standard:
 
-   ```
+   ```sh
    LOCATION=$(az group show --name az3000801-LabRG --query location --out tsv)
    az network lb create --resource-group az3000801-LabRG --name az3000802-lb --sku standard --backend-pool-name az3000802-bepool --frontend-ip-name loadBalancedFrontEndOutbound --location $LOCATION --public-ip-address az3000802-lb-pip01
    ```
