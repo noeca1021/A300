@@ -66,13 +66,13 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to create a resource group and store the JSON output in a variable (replace the `<Azure region>` placeholder with the name of the Azure region that is available in your subscription and which is closest to the lab location):
 
-   ```
+   ```sh
    RG=$(az group create --name az3000301-LabRG --location <Azure region>)
    ```
 
 1. From the Cloud Shell pane, run the following to create a service principal that will be used by Packer and store the JSON output in a variable:
 
-   ```
+   ```sh
    AAD_SP=$(az ad sp create-for-rbac)
    ```
 
@@ -90,63 +90,63 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal appId and store it in a variable
 
-   ```
-   CLIENT_ID=$(echo $AAD_SP | jq .appId | tr -d '"')
+   ```sh
+   CLIENT_ID=$(echo $AAD_SP | jq -r .appId)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal password and store it in a variable
 
-   ```
-   CLIENT_SECRET=$(echo $AAD_SP | jq .password | tr -d '"')
+   ```sh
+   CLIENT_SECRET=$(echo $AAD_SP | jq -r .password)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal tenant ID and store it in a variable
 
-   ```
-   TENANT_ID=$(echo $AAD_SP | jq .tenant | tr -d '"')
+   ```sh
+   TENANT_ID=$(echo $AAD_SP | jq -r .tenant)
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the subscription ID and store it in a variable:
 
-   ```
+   ```sh
    SUBSCRIPTION_ID=$(az account show --query id | tr -d '"')
    ```
 
 1. From the Cloud Shell pane, run the following to retrive the value of the resource group location and store it in a variable:
 
-   ```
-   LOCATION=$(echo $RG | jq .location | tr -d '"')
+   ```sh
+   LOCATION=$(echo $RG | jq -r .location)
    ```
 
 1. From the Cloud Shell pane, upload the Packer template **\\allfiles\\AZ-300T01\\Module_03\\template03.json** into the home directory.
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **client_id** parameter with the value of the **\$CLIENT_ID** variable in the Packer template:
 
-   ```
+   ```sh
    sed -i.bak1 's/"$CLIENT_ID"/"'"$CLIENT_ID"'"/' ~/template03.json
    ```
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **client_secret** parameter with the value of the **\$CLIENT_SECRET** variable in the Packer template:
 
-   ```
+   ```sh
    sed -i.bak2 's/"$CLIENT_SECRET"/"'"$CLIENT_SECRET"'"/' ~/template03.json
    ```
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **tenant_id** parameter with the value of the **\$TENANT_ID** variable in the Packer template:
 
-   ```
+   ```sh
    sed -i.bak3 's/"$TENANT_ID"/"'"$TENANT_ID"'"/' ~/template03.json
    ```
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **subscription_id** parameter with the value of the **\$SUBSCRIPTION_ID** variable in the Packer template:
 
-   ```
+   ```sh
    sed -i.bak4 's/"$SUBSCRIPTION_ID"/"'"$SUBSCRIPTION_ID"'"/' ~/template03.json
    ```
 
 1. From the Cloud Shell pane, run the following to replace the placeholder for the value of the **location** parameter with the value of the **\$LOCATION** variable in the Packer template:
 
-   ```
+   ```sh
    sed -i.bak5 's/"$LOCATION"/"'"$LOCATION"'"/' ~/template03.json
    ```
 
@@ -154,7 +154,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to build the packer-based image:
 
-   ```
+   ```sh
    ./packer build template03.json
    ```
 
@@ -176,7 +176,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to deploy an Azure VM based on the custom image.
 
-   ```
+   ```sh
    az vm create --resource-group az3000301-LabRG --name az3000301-vm --image az3000301-image --admin-username student --generate-ssh-keys
    ```
 
@@ -186,7 +186,7 @@ The main tasks for this exercise are as follows:
 
 1. Once the deployment completes, from the Cloud Shell pane, run the following to allow inbound traffic to the newly deployed VM on TCP port 80:
 
-   ```
+   ```sh
    az vm open-port --resource-group az3000301-LabRG --name az3000301-vm --port 80
    ```
 
@@ -194,7 +194,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to identify the IP address associated with the newly deployed Azure VM.
 
-   ```
+   ```sh
    az network public-ip show --resource-group az3000301-LabRG --name az3000301-vmPublicIP --query ipAddress
    ```
 
@@ -212,7 +212,7 @@ The main tasks for this exercise are as follows:
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
 
-   ```
+   ```sh
    az group list --query "[?starts_with(name,'az3000301')]".name --output tsv
    ```
 
@@ -222,7 +222,7 @@ The main tasks for this exercise are as follows:
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
-   ```
+   ```sh
    az group list --query "[?starts_with(name,'az3000301')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
 
