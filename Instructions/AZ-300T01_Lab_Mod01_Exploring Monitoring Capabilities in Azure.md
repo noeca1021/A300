@@ -36,7 +36,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the Microsoft Edge window, start a **PowerShell** session within the Cloud Shell.
 
-1. If you are presented with the **You have no storage mounted** message, configure storage using the following settings:
+1. If you are presented with the **You have no storage mounted** message, click **Show Advanced Settings** and then configure storage using the following settings:
 
    - Subsciption: the name of the target Azure subscription
 
@@ -44,14 +44,14 @@ The main tasks for this exercise are as follows:
 
    - Resource group: the name of a new resource group **az3000100-LabRG**
 
-   - Storage account: a name of a new storage account **cloudshellsa**
+   - Storage account: a name of a new storage account (between 3 and 24 characters consisting of lower case letters and digits)
 
    - File share: a name of a new file share: **cloudshell*
 
 1. From the Cloud Shell pane, run the following command to identify a unique DNS domain name (substitute the placeholder `<custom-label>` with any alphanumeric string starting with a letter and no longer than 9 characters, which is likely to be unique and the placeholder `<location>` with the name of the Azure region into which you intend to deploy resources in this lab):
 
    ```pwsh
-   Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location <location>
+   Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location '<location>'
    ```
 
 1. Verify that the command returned **True**. If not, rerun the same command with a different value of the <custom-label> until the command returns **True**.
