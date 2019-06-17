@@ -50,7 +50,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following command to identify a unique DNS domain name (substitute the placeholder `<custom-label>` with any alphanumeric string starting with a letter and no longer than 9 characters, which is likely to be unique and the placeholder `<location>` with the name of the Azure region into which you intend to deploy resources in this lab):
 
-   ```
+   ```pwsh
    Test-AzDnsAvailability -DomainNameLabel <custom-label> -Location <location>
    ```
 

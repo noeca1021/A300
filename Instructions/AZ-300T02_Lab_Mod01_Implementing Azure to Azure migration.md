@@ -50,7 +50,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, create a resource group by running (replace the `<Azure region>` placeholder with the name of the Azure region that is available in your subscription and which is closest to the lab location)
 
-   ```
+   ```pwsh
    New-AzResourceGroup -Name az3000601-LabRG -Location <Azure region>
    ```
 
@@ -60,7 +60,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
-   ```
+   ```pwsh
    New-AzResourceGroupDeployment -ResourceGroupName az3000601-LabRG -TemplateFile azuredeploy06.json -TemplateParameterFile azuredeploy06.parameters.json
    ```
 

@@ -156,31 +156,31 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, run the following to identify the storage account resource you created in the first exercise of this lab and store it in a variable:
 
-   ```
+   ```pwsh
    $storageAccount = (Get-AzStorageAccount -ResourceGroupName az3000201-LabRG)[0]
    ```
 
 1. From the Cloud Shell pane, run the following to establish security context granting full control to the storage account:
 
-   ```
+   ```pwsh
    $keyContext = $storageAccount.Context
    ```
 
 1. From the Cloud Shell pane, run the following to create a blob-specific SAS token based on the access policy you created in the previous task:
 
-   ```
+   ```pwsh
    $sasToken = New-AzStorageBlobSASToken -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Policy labcontainer-read -Context $keyContext
    ```
 
 1. From the Cloud Shell pane, run the following to establish security context based on the newly created SAS token: 
 
-   ```
+   ```pwsh
    $sasContext = New-AzStorageContext $storageAccount.StorageAccountName -SasToken $sasToken
    ```
 
 1. From the Cloud Shell pane, run the following to retrieve properties of the blob: 
 
-   ```
+   ```pwsh
    Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Context $sasContext
    ```
 
@@ -199,7 +199,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, re-run the following to attempt retrieving properties of the blob: 
 
-   ```
+   ```pwsh
    Get-AzStorageBlob -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Context $sasContext
    ```
 
