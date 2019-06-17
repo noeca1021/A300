@@ -268,7 +268,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session, start a Windows PowerShell session and run the following to determine your current public IP address:
 
-   ```
+   ```pwsh
    Invoke-RestMethod http://ipinfo.io/json 
    ```
 
@@ -375,7 +375,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az3000802-vm0**, start a Windows PowerShell session and run the following to determine your current public IP address:
 
-   ```
+   ```pwsh
    Invoke-RestMethod http://ipinfo.io/json 
    ```
 
