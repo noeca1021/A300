@@ -139,7 +139,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Function App runtime stack** blade, ensure that the **.NET** entry appears in the **Function Runtime stack** drop down list and click **Go**.
 
-1. Select **In Portal ** and then click **Continue**.
+1. Select **In Portal** and then click **Continue**.
 
 1. Select **More Templates..** and then click **Finish and view templates**.
 
