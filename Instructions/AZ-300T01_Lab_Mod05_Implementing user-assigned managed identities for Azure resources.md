@@ -120,13 +120,13 @@ The main tasks for this exercise are as follows:
 
 1. From the PowerShell prompt, run the following to install the latest version of the PowerShellGet module (press Enter if prompted for confirmation):
 
-   ```
+   ```pwsh
    Install-Module -Name PowerShellGet -Force
    ```
 
 1. From the PowerShell prompt, run the following to install the latest version of the Az module (press Enter if prompted for confirmation):
 
-   ```
+   ```pwsh
    Install-Module -Name Az -AllowClobber
    ```
 
@@ -134,13 +134,13 @@ The main tasks for this exercise are as follows:
 
 1. From the PowerShell prompt, run the following to install the the pre-release version of the PowerShellGet module:
 
-   ```
+   ```pwsh
    Install-Module -Name PowerShellGet -AllowPrerelease
    ```
 
 1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
 
-   ```
+   ```pwsh
    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
    ```
 
@@ -148,13 +148,13 @@ The main tasks for this exercise are as follows:
 
 1. From the PowerShell prompt, run the following to sign-in as the user-assigned managed identity:
 
-   ```
+   ```pwsh
    Add-AzAccount -Identity
    ```
 
 1. From the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
-   ```
+   ```pwsh
    (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
@@ -164,19 +164,19 @@ The main tasks for this exercise are as follows:
 
 1. Switch back to the Remote Desktop session, and, from the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
-   ```
+   ```pwsh
    (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
 1. From the PowerShell prompt, run the following to store location in a variable:
 
-   ```
+   ```pwsh
    $location = (Get-AzResourceGroup -Name az3000502-LabRG).Location
    ```
 
 1. From the PowerShell prompt, run the following to create a public IP address resource:
 
-   ```
+   ```pwsh
    New-AzPublicIpAddress -Name az3000502-pip -ResourceGroupName az3000502-LabRG -AllocationMethod Dynamic -Location $location
    ```
 
@@ -202,7 +202,7 @@ The main tasks for this exercise are as follows:
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
-   ```
+   ```sh
    az group list --query "[?starts_with(name,'az30005')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
 
