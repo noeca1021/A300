@@ -171,7 +171,7 @@ The main tasks for this exercise are as follows:
 
 1. Click **Blank Logic App**. This will create a blank designer workspace and display a list of connectors and triggers to add to the workspace.
 
-1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs (preview) Azure Event Grid** trigger to add it to the designer workspace.
+1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs (preview)** Azure Event Grid trigger to add it to the designer workspace.
 
 1. In the **Azure Event Grid** tile, click the **Connect with Service Principal** link, specify the following values, and click **Create**:
 
@@ -195,7 +195,8 @@ The main tasks for this exercise are as follows:
 
     - Event Type Item - 2: **Microsoft.Resources.ResourceDeleteSuccess**
 
-1. Click **add parameter** and select **Subscription Name** (Then left-mouse click in the blank area next to the **add new item** button)
+1. Click **Add new parameter** and select **Subscription Name**
+
 1. In the **Subscription Name** text box, type **event-subscription-az3000701** and click **Save**.
 
 #### Task 2: Add an action to the Azure logic app
@@ -220,7 +221,7 @@ The main tasks for this exercise are as follows:
 
     - Subject: type **Resource updated:** and, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Subject**.
 
-    - Body: in the **Dynamic Content** column to the right of the **Send an email** pane, click **See more**. Next, type **Resource group:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Topic**, type **Event type:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Type**, type **Event ID:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event ID**, type **Event Time:**, and in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Time**.
+    - Body: type **Resource group:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Topic**, type **Event type:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Type**, type **Event ID:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **ID**, type **Event Time:**, and in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Time**.
 
 
 #### Task 3: Identify the callback URL of the Azure logic app
@@ -236,7 +237,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az3000701-LabRG - Events** blade, click **Web Hook**.
 
-1. On the **Create Event Subscription** blade, clear the **Subscribe to all event types** checkbox and, in the **Defined Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
+1. On the **Create Event Subscription** blade, in the **Filter to Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
 
 1. In the **Endpoint Type** drop down list, ensure that **Web Hook** is selected and click the **Select an endpoint** link. 
 
