@@ -226,7 +226,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Identify the callback URL of the Azure logic app
 
-1. In the Azure portal, navigate to the **logicapp3000701** blade and, in the **Summary** section, click **See trigger history**.
+1. In the Azure portal, navigate to the **logicapp3000701** blade and, in the **Summary** section, click **See trigger history**. Ignore any **Forbidden** error messages.
 
 1. On the **When_a_resource_event_occurs** blade, copy the value of the **Callback url [POST]** text box.
 
