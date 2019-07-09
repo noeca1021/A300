@@ -197,7 +197,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Configure routing on an Azure VM running Windows Server 2016
 
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000401-vm2** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000401-vm2** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
@@ -229,7 +229,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Configure Windows Firewall with Advanced Security on the target Azure VM
   
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000401-vm1** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000401-vm1** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
@@ -242,7 +242,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Test service chaining between peered virtual networks
   
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000402-vm1** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000402-vm1** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
