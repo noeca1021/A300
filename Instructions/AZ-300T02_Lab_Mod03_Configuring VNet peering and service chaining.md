@@ -95,60 +95,35 @@ The main tasks for this exercise are as follows:
 
 ## Exercise 2: Configuring VNet peering 
   
-The main tasks for this exercise are as follows:
+The task for this exercise is as follows:
 
-1. Configure VNet peering for the first virtual network
+1. Configure VNet peering for both virtual networks
 
-1. Configure VNet peering for the second virtual network
-
-
-#### Task 1: Configure VNet peering for the first virtual network
+#### Task 1: Configure VNet peering for both virtual networks
   
 1. In the Microsoft Edge window displaying the Azure portal, navigate to the **az3000401-vnet** virtual network blade.
 
 1. From the **az3000401-vnet** blade, create a VNet peering with the following settings:
 
-    - Name: **az3000401-vnet-to-az3000402-vnet**
+    - Name of the peering from the first virtual network to the second virtual network: **az3000401-vnet-to-az3000402-vnet**
 
     - Virtual network deployment model: **Resource manager**
 
     - Subscription: the name of the Azure subscription you are using for this lab
 
     - Virtual network: **az3000402-vnet**
+    
+    - Name of the peering from the first virtual network to the second virtual network: **az3000402-vnet-to-az3000401-vnet**    
+    
+    - Allow virtual network access from the first virtual network to the second virtual nework: **Enabled**
+    
+    - Allow virtual network access from the second virtual network to the first virtual nework: **Enabled**    
 
-    - Allow virtual network access: **Enabled**
-
-    - Allow forwarded traffic: disabled
-
-    - Allow gateway transit: disabled
-
-    - Use remote gateways: disabled
-
-
-#### Task 2: Configure VNet peering for the second virtual network
-  
-1. In Microsoft Edge, navigate to the **az3000402-vnet** virtual network blade.
-
-1. From the **az3000402-vnet** blade, create a VNet peering with the following settings:
-
-    - Name: **az3000402-vnet-to-az3000401-vnet**
-
-    - Virtual network deployment model: **Resource manager**
-
-    - Subscription: the name of the Azure subscription you are using for this lab
-
-    - Virtual network: **az3000401-vnet**
-
-    - Allow virtual network access: **Enabled**
-
-    - Allow forwarded traffic: disabled
+    - Allow forwarded traffic from the first virtual network to the second virtual network: **Disabled**
+    
+    - Allow forwarded traffic from the second virtual network to the first virtual network: **Disabled**
 
     - Allow gateway transit: disabled
-
-    - Use remote gateways: disabled
-
-> **Result**: After completing this exercise, you should have configured VNet peering between two virtual networks.
-
 
 ## Exercise 3: Implementing routing
   
