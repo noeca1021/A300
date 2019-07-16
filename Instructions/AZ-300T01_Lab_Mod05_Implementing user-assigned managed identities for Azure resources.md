@@ -124,7 +124,7 @@ The main tasks for this exercise are as follows:
    Install-Module -Name PowerShellGet -Force
    ```
 
-1. From the PowerShell prompt, run the following to install the latest version of the Az module (press Enter if prompted for confirmation):
+1. From the PowerShell prompt, run the following to install the latest version of the Az module (type **Y** and press Enter when prompted for confirmation):
 
    ```pwsh
    Install-Module -Name Az -AllowClobber
