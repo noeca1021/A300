@@ -110,7 +110,7 @@ The main tasks for this exercise are as follows:
 
    - Source resource group: **az3000601-LabRG**
 
-   - Virtual machines: **az300061-vm**
+   - Virtual machines: **az3000601-vm**
 
    - Target location: the name of an Azure region that is available in your subscription and which is different from the region you deployed an Azure VM in the previous task
 
