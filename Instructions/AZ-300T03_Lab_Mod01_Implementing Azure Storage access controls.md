@@ -53,10 +53,12 @@ The main tasks for this exercise are as follows:
     - Account kind: **Storage (general purpose v1)**
 
     - Replication: **Locally-redundant storage (LRS)**
-
+    
     - Secure transfer required: **Disabled**
 
     - Virtual network: **All networks**
+    
+    - Blob soft delete: **Disabled**
 
     - Hierarchical namespace: **Disabled**
 
