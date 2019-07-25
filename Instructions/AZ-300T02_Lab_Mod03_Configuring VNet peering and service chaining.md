@@ -253,7 +253,7 @@ The main tasks for this exercise are as follows:
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
 
-#### Task 2: Delete resource groups
+#### Task 2: Delete resource groups 
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
