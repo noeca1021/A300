@@ -301,16 +301,28 @@ The main tasks for this exercise are as follows:
 
 ## Exercise 3: Remove lab resources
 
-The main tasks for this exercise are as follows:
+#### Task 1: Open Cloud Shell
 
-1. Remove lab resources 
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
 
-#### Task 1: Remove lab resources 
+1. If needed, switch to the Bash shell session by using the drop down list in the upper left corner of the Cloud Shell pane.
 
-1. In the Azure portal, start the Bash session in the Cloud Shell.
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
 
-1. From the Cloud Shell pane, run the following to delete resource groups that host all resources that you provisioned in this lab
+   ```
+   az group list --query "[?starts_with(name,'az300T06')]".name --output tsv
+   ```
+
+1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
+#### Task 2: Delete resource groups
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
    ```sh
-for RESOURCE_GROUP_NAME in 'az300T0602-LabRG' 'az300T0603-LabRG' ; do     az group delete --name "${RESOURCE_GROUP_NAME}" --no-wait --yes; done
+   az group list --query "[?starts_with(name,'az300T06')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
+
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
+> **Result**: In this exercise, you removed the resources used in this lab.
