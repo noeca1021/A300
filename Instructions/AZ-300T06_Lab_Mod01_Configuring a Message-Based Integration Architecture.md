@@ -84,7 +84,7 @@ The main tasks for this exercise are as follows:
    ```sh
    export RESOURCE_GROUP_NAME='az300T0602-LabRG'
 
-   az group create --name "${RESOURCE_GROUP_NAME}" --location $LOCATION
+   az group create --name "${RESOURCE_GROUP_NAME}" --location "$LOCATION"
    ```
 
 1. From the Cloud Shell pane, run the following to create an Azure Storage account and a container that will host blobs to be processed by the Azure function:
