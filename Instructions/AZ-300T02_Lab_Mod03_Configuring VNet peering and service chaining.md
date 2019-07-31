@@ -76,7 +76,7 @@ The main tasks for this exercise are as follows:
     > **Note**: Do not wait for the deployment to complete but proceed to the next task.
 
 
-#### Task 1: Create the second Azure virtual network environment by using an Azure Resource Manager template
+#### Task 2: Create the second Azure virtual network environment by using an Azure Resource Manager template
 
 1. From the Cloud Shell pane, upload the second Azure Resource Manager template **\\allfiles\\AZ-300T02\\Module_03\\azuredeploy0402.json** into the home directory.
 
