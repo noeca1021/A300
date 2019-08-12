@@ -20,9 +20,7 @@ After completing this lab, you will be able to:
 
 Estimated Time: 45 minutes
 
-User Name: **Student**
-
-Password: **Pa55w.rd**
+Interface: **Use Azure Cloud Shell in BASH mode**
 
 ## Exercise 1: Installing and configuring HashiCorp Packer
 
