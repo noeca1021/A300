@@ -191,7 +191,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Delete resource group
 
-1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pannel and swicth to the Bash shell if necessary.
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
 
