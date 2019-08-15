@@ -67,6 +67,7 @@ The main tasks for this exercise are as follows:
    ```sh
    RG=$(az group create --name az3000301-LabRG --location <Azure region>)
    ```
+   > **Note**: To list Azure regions, run `az account list-locations -output table`
 
 1. From the Cloud Shell pane, run the following to create a service principal that will be used by Packer and store the JSON output in a variable:
 
