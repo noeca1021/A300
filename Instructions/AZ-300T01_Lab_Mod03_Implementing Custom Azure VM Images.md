@@ -51,13 +51,13 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to download the Packer compressed installation media:
 
    ```
-   wget https://releases.hashicorp.com/packer/1.3.1/packer_1.3.1_linux_amd64.zip
+   wget https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip
    ```
 
 1. From the Cloud Shell pane, run the following to unzip the Packer installation media:
 
    ```
-   unzip packer_1.3.1_linux_amd64.zip
+   unzip packer_1.4.3_linux_amd64.zip
    ```
 
 #### Task 2: Configure HashiCorp Packer prerequisites
