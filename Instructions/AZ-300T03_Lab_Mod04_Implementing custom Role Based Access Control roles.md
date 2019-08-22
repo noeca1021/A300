@@ -195,7 +195,7 @@ The main tasks for this exercise are as follows:
 
     - Role: **Virtual Machine Operator (Custom)**
 
-    - Assign access to: **Azure AD user, group, or application**
+    - Assign access to: **Azure AD user, group, or service principal**
 
     - Select: **lab user0901**
 
