@@ -156,8 +156,10 @@ The main tasks for this exercise are as follows:
     - Location: the same Azure region in which you created the virtual networks
   
     - Virtual network gateway route propagation: **Disabled**
+    
+    Once the creation of the route table has finished, click on **Go to resource**
 
-1. In the Azure portal, add to the route table a route with the following settings: 
+1. In the Azure portal, on the route table az3000402-rt1 that was created on the previous step, click on **Routes** under **Settings** and add a route with the following settings: 
 
     - Route name: **custom-route-to-az3000401-vnet**
 
@@ -184,7 +186,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Remote Desktop session to az3000401-vm2, start the **Routing and Remote Access** console. 
 
-1. In the **Routing and Remote Access** console, run **Routing and Remote Access Server Setup Wizard** and enable **LAN routing**. 
+1. In the **Routing and Remote Access** console, right click under the name of the server az3000401-vm2 and select **Configure and Enable Routing and Remote Access** to run the **Routing and Remote Access Server Setup Wizard**.
+
+1. In the **Routing and Remote Access Server Setup Wizard**, select **Custom configuration** under **Configuration** and enable **LAN routing**. 
 
 1. Start **Routing and Remote Access** service.
 
