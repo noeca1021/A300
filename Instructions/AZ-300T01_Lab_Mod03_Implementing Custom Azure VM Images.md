@@ -10,9 +10,7 @@ Adatum Corporation wants to create custom Azure VM images
 
 After completing this lab, you will be able to:
 
-- Install and configure HashiCorp Packer
-
-- Create a custom VM image
+- Create a custom VM image using HashiCorp Packer
 
 - Deploy an Azure VM based on a custom image
 
@@ -22,15 +20,15 @@ Estimated Time: 45 minutes
 
 Interface: **Use Azure Cloud Shell in BASH mode**
 
-## Exercise 1: Installing and configuring HashiCorp Packer
+## Exercise 1: Creating a custom image
 
 The main tasks for this exercise are as follows:
 
-1. Download HashiCorp Packer
+1. Configure a Packer template
 
-1. Configure HashiCorp Packer prerequisites
+1. Build a Packer-based image
 
-#### Task 1: Download HashiCorp Packer
+#### Task 1: Configure a Packer template
 
 1. From the lab virtual machine, start Microsoft Edge and browse to the Azure portal at [**http://portal.azure.com**](http://portal.azure.com) and sign in by using the Microsoft account that has the Owner role in the target Azure subscription.
 
@@ -48,20 +46,6 @@ The main tasks for this exercise are as follows:
 
    - File share: a name of a new file share
 
-1. From the Cloud Shell pane, run the following to download the Packer compressed installation media:
-
-   ```
-   wget https://releases.hashicorp.com/packer/1.4.3/packer_1.4.3_linux_amd64.zip
-   ```
-
-1. From the Cloud Shell pane, run the following to unzip the Packer installation media:
-
-   ```
-   unzip packer_1.4.3_linux_amd64.zip
-   ```
-
-#### Task 2: Configure HashiCorp Packer prerequisites
-
 1. From the Cloud Shell pane, run the following to create a resource group and store the JSON output in a variable (replace the `<Azure region>` placeholder with the name of the Azure region that is available in your subscription and which is closest to the lab location):
 
    ```sh
@@ -74,18 +58,6 @@ The main tasks for this exercise are as follows:
    ```sh
    AAD_SP=$(az ad sp create-for-rbac)
    ```
-
-> **Result**: After you completed this exercise, you have downloaded HashiCorp Packer and configured its prerequisites.
-
-## Exercise 2: Creating a custom image
-
-The main tasks for this exercise are as follows:
-
-1. Configure a Packer template
-
-1. Build a Packer-based image
-
-#### Task 1: Configure a Packer template
 
 1. From the Cloud Shell pane, run the following to retrieve the value of the service principal appId and store it in a variable
 
@@ -154,7 +126,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to build the packer-based image:
 
    ```sh
-   ./packer build template03.json
+   'build template03.json
    ```
 
 1. Monitor the built progress until it completes.
@@ -163,7 +135,7 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have created a Packer template and used it to build a custom image.
 
-## Exercise 3: Deploying a custom image
+## Exercise 2: Deploying a custom image
 
 The main tasks for this exercise are as follows:
 
@@ -203,7 +175,7 @@ The main tasks for this exercise are as follows:
 
 > **Result**: After you completed this exercise, you have deployed an Azure VM based on a custom image and validated the deployment.
 
-## Exercise 4: Remove lab resources
+## Exercise 3: Remove lab resources
 
 #### Task 1: Open Cloud Shell
 
