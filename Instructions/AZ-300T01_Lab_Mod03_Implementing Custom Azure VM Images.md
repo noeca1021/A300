@@ -126,7 +126,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to build the packer-based image:
 
    ```sh
-   'build template03.json
+   packer build template03.json
    ```
 
 1. Monitor the built progress until it completes.
