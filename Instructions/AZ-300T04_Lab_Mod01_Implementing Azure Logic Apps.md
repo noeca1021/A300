@@ -235,7 +235,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **az3000701-LabRG** resource group and, in the vertical menu, click **Events**.
 
-1. On the **az3000701-LabRG - Events** blade, click **Web Hook**.
+1. On the **az3000701-LabRG - Events** blade, select **Getting Started** and click **Web Hook**.
 
 1. On the **Create Event Subscription** blade, in the **Filter to Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
 
