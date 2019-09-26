@@ -81,7 +81,7 @@ The main tasks for this exercise are as follows:
 
     - Log Analytics: **Off**
 
-1. Wait until the vault is provisioned. This will take about a minute. 
+1. Wait until the app is provisioned. This will take about a minute. 
 
 
 #### Task 3: Create an Azure AD service principal 
@@ -114,7 +114,7 @@ The main tasks for this exercise are as follows:
    New-AzADServicePrincipal -ApplicationId $aadApp30007.ApplicationId.Guid
    ```
 
-1. In the output of the **New-AzureRmADServicePrincipal** command, note the value of the **ApplicationId** property. You will need this in the next exercise of this lab.
+1. In the output of the **New-AzADServicePrincipal** command, note the value of the **ApplicationId** property. You will need this in the next exercise of this lab.
 
 1. From the Cloud Shell pane, run the following to identify the value of the **Id** property of the current Azure subscription and the value of the **TenantId** property of the Azure AD tenant associated with that subscription (you will also need them in the next exercise of this lab):
 
@@ -256,7 +256,7 @@ The main tasks for this exercise are as follows:
 
 1. On the storage account blade, in the vertical menu, click **Configuration**.
 
-1. On the configuration blade, set the **Secure transfer required** setting to **Disabled**
+1. On the configuration blade, set the **Secure transfer required** setting to **Disabled** and click **Save**
 
 1. Navigate to the **logicapp3000701** blade, click **Refresh**, and note that the **Runs history** includes the entry corresponding to configuration change of the Azure storage account.
 
