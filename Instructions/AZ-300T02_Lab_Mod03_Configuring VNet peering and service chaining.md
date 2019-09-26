@@ -113,7 +113,7 @@ The task for this exercise is as follows:
 
     - Virtual network: **az3000402-vnet**
     
-    - Name of the peering from the first virtual network to the second virtual network: **az3000402-vnet-to-az3000401-vnet**    
+    - Name of the peering from the second virtual network to the first virtual network: **az3000402-vnet-to-az3000401-vnet**    
     
     - Allow virtual network access from the first virtual network to the second virtual nework: **Enabled**
     
