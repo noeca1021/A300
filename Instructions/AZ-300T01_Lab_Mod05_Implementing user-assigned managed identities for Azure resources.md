@@ -154,7 +154,7 @@ The main tasks for this exercise are as follows:
 
 1. Note the error message. As the message states, the current security context does not grant sufficent authorization to the target resource. To resolve this issue, switch to the Azure portal, navigate to the **az3000501-LabRG - Access control (IAM)** blade.
 
-1. From the **az3000501-LabRG - Access control (IAM)** blade, assign the Reader role to the user-assigned managed identity **az3000501-mi**.
+1. From the **az3000501-LabRG - Access control (IAM)** blade, assign the Contributor role to the user-assigned managed identity **az3000501-mi**.
 
 1. Switch back to the Remote Desktop session, and, from the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
@@ -162,6 +162,18 @@ The main tasks for this exercise are as follows:
    (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
+   > **Note**: If you receive an error message indicating insufficient privileges, from the PowerShell prompt, run
+   
+   ```pwsh
+   Remove-AzAccount
+   ```
+   
+   followed by:
+   
+   ```pwsh
+   Add-AzAccount -Identity
+   ```
+      
 1. From the PowerShell prompt, run the following to store location in a variable:
 
    ```pwsh
