@@ -132,16 +132,10 @@ The main tasks for this exercise are as follows:
 
 1. Exit the current PowerShell session by typing `exit` and pressing Enter and then start it again by typing at the command prompt `PowerShell` and pressing Enter.
 
-1. From the PowerShell prompt, run the following to install the the pre-release version of the PowerShellGet module:
+1. From the PowerShell prompt, run the following to install the AzureRM.ManagedServiceIdentity module:
 
    ```pwsh
-   Install-Module -Name PowerShellGet -AllowPrerelease
-   ```
-
-1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
-
-   ```pwsh
-   Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+   Install-Module -Name Az.ManagedServiceIdentity
    ```
 
 #### Task 2: Validate functionality of user-assigned managed identity from the Azure VM.
