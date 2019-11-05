@@ -4,7 +4,7 @@
 
 ### Scenario
 
-Adatum Corporation wants to use manage identities to authenticate applications running in Azure VMs
+Adatum Corporation wants to use managed identities to authenticate applications running in Azure VMs
 
 ### Objectives
 
