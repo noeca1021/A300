@@ -217,7 +217,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Send an email** pane, specify the following settings and click **Save**:
 
-    - To: the name of your Microsoft Account
+    - To:  the primary e-mail address of your Microsoft Account
 
     - Subject: type **Resource updated:** and, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Subject**.
 
