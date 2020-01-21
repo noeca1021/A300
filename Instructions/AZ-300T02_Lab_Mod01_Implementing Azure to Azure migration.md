@@ -60,9 +60,8 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, switch to your home directory :
    ```pwsh
-   cd \home\yourfileshare
+   cd $home
    ```
-   (Where *yourfileshare* is the name of the file share you created during your Cloud Shell creation)
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
@@ -72,7 +71,6 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Do not wait for the deployment to complete but instead proceed to the next task.
 
-   > **Note**: If you are getting azuredeploy06.json not found, use -TemplateFile $HOME/azuredeploy06.json and -TemplateParameterFile $HOME/azuredeploy06.parameters.json
 
 #### Task 2: Implement an Azure Site Recovery vault
 
