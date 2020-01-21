@@ -56,11 +56,11 @@ The main tasks for this exercise are as follows:
     
     - Secure transfer required: **Disabled**
 
-    - Virtual network: **All networks**
+    - Network connectivity: **Public endpoint (All networks)**
     
     - Blob soft delete: **Disabled**
 
-    - Hierarchical namespace: **Disabled**
+    - Data Lake Storage Gen2: **Disabled**
 
 1. Wait for the storage account to be provisioned. This will take about a minute.
 
