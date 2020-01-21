@@ -56,11 +56,11 @@ The main tasks for this exercise are as follows:
     
     - Secure transfer required: **Disabled**
 
-    - Virtual network: **All networks**
+    - Network connectivity: **Public endpoint (all networks)**
     
     - Blob soft delete: **Disabled**
 
-    - Hierarchical namespace: **Disabled**
+    - Data Lake Storage Gen2: **Disabled**
 
 1. Wait for the storage account to be provisioned. This will take about a minute.
 
@@ -171,7 +171,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to create a blob-specific SAS token based on the access policy you created in the previous task:
 
    ```pwsh
-   $sasToken = New-AzStorageBlobSASToken -Container 'labcontainer' -Blob 'splashscreen.contrast-white_scale-400.png' -Policy labcontainer-read -Context $keyContext
+   $sasToken = New-AzStorageBlobSASToken -Container 'labcontainers' -Blob 'splashscreen.contrast-white_scale-400.png' -Policy labcontainer-read -Context $keyContext
    ```
 
 1. From the Cloud Shell pane, run the following to establish security context based on the newly created SAS token: 
