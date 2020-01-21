@@ -58,6 +58,12 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T02\\Module_01\\azuredeploy06.parameters.json** into the home directory.
 
+1. From the Cloud Shell pane, switch to your home directory :
+   ```pwsh
+   cd \home\yourfileshare
+   ```
+   (Where *yourfileshare* is the name of the file share you created during your Cloud Shell creation)
+
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
    ```pwsh
