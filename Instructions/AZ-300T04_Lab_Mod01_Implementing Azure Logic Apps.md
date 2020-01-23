@@ -57,12 +57,12 @@ The main tasks for this exercise are as follows:
     - Account kind: **Storage (general purpose v1)**
 
     - Replication: **Locally-redundant storage (LRS)**
+    
+    - Network connectivity: **Public endpoint(All networks)**
 
     - Secure transfer required: **Enabled**
 
-    - Virtual network: **All networks**
-
-    - Hierarchical namespace: **Disabled**
+    - Data Lake Storage Gen2: **Disabled**
 
     > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. 
 
@@ -171,7 +171,7 @@ The main tasks for this exercise are as follows:
 
 1. Click **Blank Logic App**. This will create a blank designer workspace and display a list of connectors and triggers to add to the workspace.
 
-1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs (preview)** Azure Event Grid trigger to add it to the designer workspace.
+1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs** Azure Event Grid trigger to add it to the designer workspace.
 
 1. In the **Azure Event Grid** tile, click the **Connect with Service Principal** link, specify the following values, and click **Create**:
 
@@ -189,7 +189,7 @@ The main tasks for this exercise are as follows:
 
     - Resource Type: **Microsoft.Resources.resourceGroups**
 
-    - Resource Name: **/subscriptions/*subscriptionId*/resourceGroups/az3000701-LabRG**, where ***subscriptionId*** is the subscription **Id** property you identified in the previous exercise
+    - Resource Name: **az3000701-LabRG**
 
     - Event Type Item - 1: **Microsoft.Resources.ResourceWriteSuccess**
 
@@ -207,7 +207,7 @@ The main tasks for this exercise are as follows:
 
 1. In the list of results, click **Outlook.com**. 
 
-1. In the list of actions for **Outlook.com**, click **Outlook.com - Send an email**.
+1. In the list of actions for **Outlook.com**, click **Send an email**.
 
 1. In the **Outlook.com** pane, click **Sign in**. 
 
@@ -235,7 +235,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **az3000701-LabRG** resource group and, in the vertical menu, click **Events**.
 
-1. On the **az3000701-LabRG - Events** blade, select **Getting Started** and click **Web Hook**.
+1. On the **az3000701-LabRG - Events** blade, select **Get Started** and click **Web Hook**.
 
 1. On the **Create Event Subscription** blade, in the **Filter to Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
 

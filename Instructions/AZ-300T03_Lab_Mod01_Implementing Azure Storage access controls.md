@@ -57,7 +57,7 @@ The main tasks for this exercise are as follows:
     - Secure transfer required: **Disabled**
 
     - Network connectivity: **Public endpoint (All networks)**
-    
+
     - Blob soft delete: **Disabled**
 
     - Data Lake Storage Gen2: **Disabled**
