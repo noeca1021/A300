@@ -218,6 +218,12 @@ The main tasks for this exercise are as follows:
 
 1. If necessary, restart the Bash session in the Cloud Shell.
 
+1. From the Cloud Shell pane, run the following to register the eventgrid resource provider in your subscription:
+
+   ```sh
+   az provider register --namespace microsoft.eventgrid
+   ```
+  
 1. From the Cloud Shell pane, run the following to generate a pseudo-random string of characters that will be used as a prefix for names of resources you will provision in this exercise:
 
    ```sh
