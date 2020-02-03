@@ -77,6 +77,8 @@ The main tasks for this exercise are as follows:
    - Instance count: **1**
 
    - Admin Username: **student**
+   
+   - Authentication Type: **password**
 
    - Admin Password: **Pa55w.rd1234**
 
