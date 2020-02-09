@@ -167,7 +167,7 @@ The main tasks for this exercise are as follows:
 
 1. Identify the value of the **Public IP address** assigned to the front end of the load balancer associated with the VM scale set.
 
-1. From the lab computer, start Microsoft Edge and browse to **http://*Public IP address\*:9000** (where **_Public IP address_** is the IP address you identified in the previous step)
+1. From the lab computer, start Microsoft Edge and browse to **http://_Public IP address_:9000** (where **_Public IP address_** is the IP address you identified in the previous step)
 
 1. On the **Worker interface** page, click the **Start work** link.
 
