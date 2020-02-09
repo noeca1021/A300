@@ -72,9 +72,9 @@ The main tasks for this exercise are as follows:
    > **Note**: Do not wait for the deployment to complete but instead proceed to the next task.
 
 
-#### Task 2: Implement an Azure Site Recovery vault
+#### Task 2: Implement an Azure Recovery Service vault
 
-1. From Azure Portal, create an instance of **Backup and Site Recovery (OMS)** Recovery Services vault with the following settings:
+1. From Azure Portal, create an instance of **Recovery Services vault** with the following settings:
 
    - Name: **vaultaz3000602**
 
