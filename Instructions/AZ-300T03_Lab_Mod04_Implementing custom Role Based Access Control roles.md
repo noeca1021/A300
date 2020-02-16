@@ -159,6 +159,12 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the Microsoft Edge window, start a **PowerShell** session within the **Cloud Shell**. 
 
+1. From the Cloud Shell pane, run the following to explicitly authenticate to the target Azure AD tenant:
+
+   ```pwsh
+   Connect-AzureAD
+   ```
+   
 1. From the Cloud Shell pane, run the following to identify the Azure AD DNS domain name:
 
    ```pwsh
