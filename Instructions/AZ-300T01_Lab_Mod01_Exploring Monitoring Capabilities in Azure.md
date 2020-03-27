@@ -193,30 +193,32 @@ The main tasks for this exercise are as follows:
 
 The main tasks for this exercise are as follows:
 
-1. Discover Created Resource Groups for this Lab
+1. Discover resource groups created in this lab
 
-1. Delete Created Resource Groups for this Lab
+1. Delete resource groups created in this lab
 
-### Task 1: Discover Created Resource Groups for this Lab
+### Task 1: Discover resource groups created in this lab
 
 1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell panel and switch to the **PowerShell** shell if necessary.
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
 
-   ```
-   az group list --query "[?starts_with(name,'az300010')].[name]" --output tsv
+   ```pwsh
+   Get-AzResourceGroup -Name 'az300010*'
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
 
-#### Task 2: Delete Created Resource Groups for this Lab
+#### Task 2: Delete resource groups created in this lab
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
-   ```
-   az group list --query "[?starts_with(name,'az300010')].[name]" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   ```pwsh
+   Get-AzResourceGroup -Name 'az104-05*' | Remove-AzResourceGroup -Force -AsJob
    ```
 
+    >**Note**: The command executes asynchronously (as determined by the -AsJob parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the resource groups are actually removed.
+    
 1. Close the **Cloud Shell** prompt at the bottom of the portal.
 
 > **Result**: After you completed this exercise, you removed the resources used in this lab.
