@@ -121,6 +121,7 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to install the latest version of the PowerShellGet module (press Enter if prompted for confirmation):
 
    ```pwsh
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    Install-Module -Name PowerShellGet -Force
    ```
 
@@ -135,6 +136,7 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to install the AzureRM.ManagedServiceIdentity module:
 
    ```pwsh
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    Install-Module -Name Az.ManagedServiceIdentity
    ```
 
