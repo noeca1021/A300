@@ -121,13 +121,15 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to install the latest version of the PowerShellGet module (press Enter if prompted for confirmation):
 
    ```pwsh
-   Install-Module -Name PowerShellGet -Force
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+   Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
 
 1. From the PowerShell prompt, run the following to install the latest version of the Az module (press Enter if prompted for confirmation):
 
    ```pwsh
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name Az -AllowClobber -SkipPublisherCheck
    ```
 
 1. Exit the current PowerShell session by typing `exit` and pressing Enter and then start it again by typing at the command prompt `PowerShell` and pressing Enter.
@@ -135,13 +137,15 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell prompt, run the following to install the the pre-release version of the PowerShellGet module:
 
    ```pwsh
-   Install-Module -Name PowerShellGet -AllowPrerelease
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+   Install-Module -Name PowerShellGet -AllowPrerelease -SkipPublisherCheck
    ```
 
 1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
 
    ```pwsh
-   Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+   Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease -SkipPublisherCheck
    ```
 
 #### Task 2: Validate functionality of user-assigned managed identity from the Azure VM.
