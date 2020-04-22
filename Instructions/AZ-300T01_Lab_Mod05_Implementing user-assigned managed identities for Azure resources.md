@@ -122,13 +122,13 @@ The main tasks for this exercise are as follows:
 
    ```pwsh
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   Install-Module -Name PowerShellGet -Force
+   Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
 
 1. From the PowerShell prompt, run the following to install the latest version of the Az module (type **Y** and press Enter when prompted for confirmation):
 
    ```pwsh
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name Az -AllowClobber -SkipPublisherCheck
    ```
 
 1. Exit the current PowerShell session by typing `exit` and pressing Enter and then start it again by typing at the command prompt `PowerShell` and pressing Enter.
@@ -137,6 +137,12 @@ The main tasks for this exercise are as follows:
 
    ```pwsh
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+   Install-Module -Name PowerShellGet -AllowPrerelease -SkipPublisherCheck
+   ```
+
+1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
+
+   ```pwsh
    Install-Module -Name Az.ManagedServiceIdentity
    ```
 
