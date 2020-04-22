@@ -58,6 +58,11 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T02\\Module_01\\azuredeploy06.parameters.json** into the home directory.
 
+1. From the Cloud Shell pane, switch to your home directory :
+   ```pwsh
+   cd $home
+   ```
+
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter by running:
 
    ```pwsh
@@ -66,11 +71,10 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Do not wait for the deployment to complete but instead proceed to the next task.
 
-   > **Note**: If you are getting azuredeploy06.json not found, use -TemplateFile $HOME/azuredeploy06.json and -TemplateParameterFile $HOME/azuredeploy06.parameters.json
 
-#### Task 2: Implement an Azure Site Recovery vault
+#### Task 2: Implement an Azure Recovery Service vault
 
-1. From Azure Portal, create an instance of **Backup and Site Recovery (OMS)** Recovery Services vault with the following settings:
+1. From Azure Portal, create an instance of **Recovery Services vault** with the following settings:
 
    - Name: **vaultaz3000602**
 
@@ -110,7 +114,7 @@ The main tasks for this exercise are as follows:
 
    - Source resource group: **az3000601-LabRG**
 
-   - Virtual machines: **az300061-vm**
+   - Virtual machines: **az3000601-vm**
 
    - Target location: the name of an Azure region that is available in your subscription and which is different from the region you deployed an Azure VM in the previous task
 
@@ -159,3 +163,31 @@ The main tasks for this exercise are as follows:
    > **Note**: You must ensure that the replicated item is removed first before you can delete the vault.
 
 > **Result**: After you completed this exercise, you have implemented automatic replication of an Azure VM.
+
+## Exercise 3: Remove lab resources
+
+#### Task 1: Open Cloud Shell
+
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+
+1. If needed, switch to the Bash shell session by using the drop down list in the upper left corner of the Cloud Shell pane.
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
+
+   ```
+   az group list --query "[?starts_with(name,'az30006')].name" --output tsv
+   ```
+
+1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
+#### Task 2: Delete resource groups
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
+
+   ```sh
+   az group list --query "[?starts_with(name,'az30006')].name" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   ```
+
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
+> **Result**: In this exercise, you removed the resources used in this lab.

@@ -4,7 +4,7 @@
 
 ### Scenario
 
-Adatum Corporation wants to use manage identities to authenticate applications running in Azure VMs
+Adatum Corporation wants to use managed identities to authenticate applications running in Azure VMs
 
 ### Objectives
 
@@ -62,7 +62,7 @@ The main tasks for this exercise are as follows:
 
 1. From the Cloud Shell pane, upload the parameter file **\\allfiles\\AZ-300T01\\Module_05\\azuredeploy05.parameters.json** into the home directory.
 
-1. From the Cloud Shell pane, deploy the two Azure VMs hosting Windows Server 2016 Datacenter into the first virtual network by running:
+1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter into the first virtual network by running:
 
    ```
    az group deployment create --resource-group az3000501-LabRG --template-file azuredeploy05.json --parameters @azuredeploy05.parameters.json
@@ -122,11 +122,10 @@ The main tasks for this exercise are as follows:
 
    ```pwsh
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
    Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
 
-1. From the PowerShell prompt, run the following to install the latest version of the Az module (press Enter if prompted for confirmation):
+1. From the PowerShell prompt, run the following to install the latest version of the Az module (type **Y** and press Enter when prompted for confirmation):
 
    ```pwsh
    Install-Module -Name Az -AllowClobber -SkipPublisherCheck
@@ -134,18 +133,17 @@ The main tasks for this exercise are as follows:
 
 1. Exit the current PowerShell session by typing `exit` and pressing Enter and then start it again by typing at the command prompt `PowerShell` and pressing Enter.
 
-1. From the PowerShell prompt, run the following to install the the pre-release version of the PowerShellGet module:
+1. From the PowerShell prompt, run the following to install the AzureRM.ManagedServiceIdentity module:
 
    ```pwsh
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
    Install-Module -Name PowerShellGet -AllowPrerelease -SkipPublisherCheck
    ```
 
 1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
 
    ```pwsh
-   Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease -SkipPublisherCheck
+   Install-Module -Name Az.ManagedServiceIdentity
    ```
 
 #### Task 2: Validate functionality of user-assigned managed identity from the Azure VM.
@@ -164,7 +162,7 @@ The main tasks for this exercise are as follows:
 
 1. Note the error message. As the message states, the current security context does not grant sufficent authorization to the target resource. To resolve this issue, switch to the Azure portal, navigate to the **az3000501-LabRG - Access control (IAM)** blade.
 
-1. From the **az3000501-LabRG - Access control (IAM)** blade, assign the Reader role to the user-assigned managed identity **az3000501-mi**.
+1. From the **az3000501-LabRG - Access control (IAM)** blade, assign the Contributor role to the user-assigned managed identity **az3000501-mi**.
 
 1. Switch back to the Remote Desktop session, and, from the PowerShell prompt, run the following to attempt to retrieve the currently used managed identity:
 
@@ -172,6 +170,18 @@ The main tasks for this exercise are as follows:
    (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
+   > **Note**: If you receive an error message indicating insufficient privileges, from the PowerShell prompt, run
+   
+   ```pwsh
+   Remove-AzAccount
+   ```
+   
+   followed by:
+   
+   ```pwsh
+   Add-AzAccount -Identity
+   ```
+      
 1. From the PowerShell prompt, run the following to store location in a variable:
 
    ```pwsh
@@ -197,7 +207,7 @@ The main tasks for this exercise are as follows:
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
 
    ```
-   az group list --query "[?starts_with(name,'az30005')]".name --output tsv
+   az group list --query "[?starts_with(name,'az30005')].name" --output tsv
    ```
 
 1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
@@ -207,7 +217,7 @@ The main tasks for this exercise are as follows:
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
 
    ```sh
-   az group list --query "[?starts_with(name,'az30005')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   az group list --query "[?starts_with(name,'az30005')].name" --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
    ```
 
 1. Close the **Cloud Shell** prompt at the bottom of the portal.

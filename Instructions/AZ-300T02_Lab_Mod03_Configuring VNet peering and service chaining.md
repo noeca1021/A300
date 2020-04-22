@@ -70,20 +70,20 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy the two Azure VMs hosting Windows Server 2016 Datacenter into the first virtual network by running:
 
    ```
-   az group deployment create --resource-group az3000401-LabRG --template-file azuredeploy0401.json --parameters @azuredeploy04.parameters.json
+   az group deployment create --resource-group az3000401-LabRG --template-file azuredeploy0401.json --parameters @azuredeploy04.parameters.json --no-wait
    ```
 
     > **Note**: Do not wait for the deployment to complete but proceed to the next task.
 
 
-#### Task 1: Create the second Azure virtual network environment by using an Azure Resource Manager template
+#### Task 2: Create the second Azure virtual network environment by using an Azure Resource Manager template
 
 1. From the Cloud Shell pane, upload the second Azure Resource Manager template **\\allfiles\\AZ-300T02\\Module_03\\azuredeploy0402.json** into the home directory.
 
 1. From the Cloud Shell pane, deploy an Azure VM hosting Windows Server 2016 Datacenter into the second virtual network by running:
 
    ```
-   az group deployment create --resource-group az3000402-LabRG --template-file azuredeploy0402.json --parameters @azuredeploy04.parameters.json
+   az group deployment create --resource-group az3000402-LabRG --template-file azuredeploy0402.json --parameters @azuredeploy04.parameters.json --no-wait
    ```
 
     > **Note**: The second template uses the same parameter file. 
@@ -95,60 +95,35 @@ The main tasks for this exercise are as follows:
 
 ## Exercise 2: Configuring VNet peering 
   
-The main tasks for this exercise are as follows:
+The task for this exercise is as follows:
 
-1. Configure VNet peering for the first virtual network
+1. Configure VNet peering for both virtual networks
 
-1. Configure VNet peering for the second virtual network
-
-
-#### Task 1: Configure VNet peering for the first virtual network
+#### Task 1: Configure VNet peering for both virtual networks
   
 1. In the Microsoft Edge window displaying the Azure portal, navigate to the **az3000401-vnet** virtual network blade.
 
 1. From the **az3000401-vnet** blade, create a VNet peering with the following settings:
 
-    - Name: **az3000401-vnet-to-az3000402-vnet**
+    - Name of the peering from the first virtual network to the second virtual network: **az3000401-vnet-to-az3000402-vnet**
 
     - Virtual network deployment model: **Resource manager**
 
     - Subscription: the name of the Azure subscription you are using for this lab
 
     - Virtual network: **az3000402-vnet**
+    
+    - Name of the peering from the second virtual network to the first virtual network: **az3000402-vnet-to-az3000401-vnet**    
+    
+    - Allow virtual network access from the first virtual network to the second virtual nework: **Enabled**
+    
+    - Allow virtual network access from the second virtual network to the first virtual nework: **Enabled**    
 
-    - Allow virtual network access: **Enabled**
-
-    - Allow forwarded traffic: disabled
-
-    - Allow gateway transit: disabled
-
-    - Use remote gateways: disabled
-
-
-#### Task 2: Configure VNet peering for the second virtual network
-  
-1. In Microsoft Edge, navigate to the **az3000402-vnet** virtual network blade.
-
-1. From the **az3000402-vnet** blade, create a VNet peering with the following settings:
-
-    - Name: **az3000402-vnet-to-az3000401-vnet**
-
-    - Virtual network deployment model: **Resource manager**
-
-    - Subscription: the name of the Azure subscription you are using for this lab
-
-    - Virtual network: **az3000401-vnet**
-
-    - Allow virtual network access: **Enabled**
-
-    - Allow forwarded traffic: disabled
+    - Allow forwarded traffic from the first virtual network to the second virtual network: **Disabled**
+    
+    - Allow forwarded traffic from the second virtual network to the first virtual network: **Disabled**
 
     - Allow gateway transit: disabled
-
-    - Use remote gateways: disabled
-
-> **Result**: After completing this exercise, you should have configured VNet peering between two virtual networks.
-
 
 ## Exercise 3: Implementing routing
   
@@ -180,9 +155,11 @@ The main tasks for this exercise are as follows:
 
     - Location: the same Azure region in which you created the virtual networks
   
-    - BGP route propagation: **Disabled**
+    - Virtual network gateway route propagation: **Disabled**
+    
+    Once the creation of the route table has finished, click on **Go to resource**
 
-1. In the Azure portal, add to the route table a route with the following settings: 
+1. In the Azure portal, on the route table az3000402-rt1 that was created on the previous step, click on **Routes** under **Settings** and add a route with the following settings: 
 
     - Route name: **custom-route-to-az3000401-vnet**
 
@@ -197,7 +174,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Configure routing on an Azure VM running Windows Server 2016
 
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000401-vm2** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000401-vm2** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
@@ -209,7 +186,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Remote Desktop session to az3000401-vm2, start the **Routing and Remote Access** console. 
 
-1. In the **Routing and Remote Access** console, run **Routing and Remote Access Server Setup Wizard** and enable **LAN routing**. 
+1. In the **Routing and Remote Access** console, right click under the name of the server az3000401-vm2 and select **Configure and Enable Routing and Remote Access** to run the **Routing and Remote Access Server Setup Wizard**.
+
+1. In the **Routing and Remote Access Server Setup Wizard**, select **Custom configuration** under **Configuration** and enable **LAN routing**. 
 
 1. Start **Routing and Remote Access** service.
 
@@ -229,7 +208,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Configure Windows Firewall with Advanced Security on the target Azure VM
   
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000401-vm1** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000401-vm1** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
@@ -242,7 +221,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Test service chaining between peered virtual networks
   
-1. On MIA-CL1, from the Azure portal, start a Remote Desktop session to **az3000402-vm1** Azure VM. 
+1. On the lab computer, from the Azure portal, start a Remote Desktop session to **az3000402-vm1** Azure VM. 
 
 1. When prompted to authenticate, specify the following credentials:
 
@@ -260,5 +239,32 @@ The main tasks for this exercise are as follows:
 
 1. Verify that test is successful and note that the connection was routed over 10.0.1.4
 
-
 >  **Result**: After completing this exercise, you should have validated service chaining between peered virtual networks.
+
+## Exercise 5: Remove lab resources
+
+#### Task 1: Open Cloud Shell
+
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+
+1. If needed, switch to the Bash shell session by using the drop down list in the upper left corner of the Cloud Shell pane.
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
+
+   ```
+   az group list --query "[?starts_with(name,'az30004')]".name --output tsv
+   ```
+
+1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
+#### Task 2: Delete resource groups 
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
+
+   ```sh
+   az group list --query "[?starts_with(name,'az30004')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   ```
+
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
+> **Result**: In this exercise, you removed the resources used in this lab.

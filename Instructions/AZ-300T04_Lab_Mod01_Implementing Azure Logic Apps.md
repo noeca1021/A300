@@ -57,12 +57,12 @@ The main tasks for this exercise are as follows:
     - Account kind: **Storage (general purpose v1)**
 
     - Replication: **Locally-redundant storage (LRS)**
+    
+    - Network connectivity: **Public endpoint(All networks)**
 
     - Secure transfer required: **Enabled**
 
-    - Virtual network: **All networks**
-
-    - Hierarchical namespace: **Disabled**
+    - Data Lake Storage Gen2: **Disabled**
 
     > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. 
 
@@ -81,7 +81,7 @@ The main tasks for this exercise are as follows:
 
     - Log Analytics: **Off**
 
-1. Wait until the vault is provisioned. This will take about a minute. 
+1. Wait until the app is provisioned. This will take about a minute. 
 
 
 #### Task 3: Create an Azure AD service principal 
@@ -114,7 +114,7 @@ The main tasks for this exercise are as follows:
    New-AzADServicePrincipal -ApplicationId $aadApp30007.ApplicationId.Guid
    ```
 
-1. In the output of the **New-AzureRmADServicePrincipal** command, note the value of the **ApplicationId** property. You will need this in the next exercise of this lab.
+1. In the output of the **New-AzADServicePrincipal** command, note the value of the **ApplicationId** property. You will need this in the next exercise of this lab.
 
 1. From the Cloud Shell pane, run the following to identify the value of the **Id** property of the current Azure subscription and the value of the **TenantId** property of the Azure AD tenant associated with that subscription (you will also need them in the next exercise of this lab):
 
@@ -171,7 +171,7 @@ The main tasks for this exercise are as follows:
 
 1. Click **Blank Logic App**. This will create a blank designer workspace and display a list of connectors and triggers to add to the workspace.
 
-1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs (preview) Azure Event Grid** trigger to add it to the designer workspace.
+1. Search for **Event Grid** triggers and, in the list of results, click the **When a resource event occurs** Azure Event Grid trigger to add it to the designer workspace.
 
 1. In the **Azure Event Grid** tile, click the **Connect with Service Principal** link, specify the following values, and click **Create**:
 
@@ -189,13 +189,14 @@ The main tasks for this exercise are as follows:
 
     - Resource Type: **Microsoft.Resources.resourceGroups**
 
-    - Resource Name: **/subscriptions/*subscriptionId*/resourceGroups/az3000701-LabRG**, where ***subscriptionId*** is the subscription **Id** property you identified in the previous exercise
+    - Resource Name: **az3000701-LabRG**
 
     - Event Type Item - 1: **Microsoft.Resources.ResourceWriteSuccess**
 
     - Event Type Item - 2: **Microsoft.Resources.ResourceDeleteSuccess**
 
-1. Click **add parameter** and select **Subscription Name** (Then left-mouse click in the blank area next to the **add new item** button)
+1. Click **Add new parameter** and select **Subscription Name**
+
 1. In the **Subscription Name** text box, type **event-subscription-az3000701** and click **Save**.
 
 #### Task 2: Add an action to the Azure logic app
@@ -206,7 +207,7 @@ The main tasks for this exercise are as follows:
 
 1. In the list of results, click **Outlook.com**. 
 
-1. In the list of actions for **Outlook.com**, click **Outlook.com - Send an email**.
+1. In the list of actions for **Outlook.com**, click **Send an email**.
 
 1. In the **Outlook.com** pane, click **Sign in**. 
 
@@ -216,16 +217,16 @@ The main tasks for this exercise are as follows:
 
 1. In the **Send an email** pane, specify the following settings and click **Save**:
 
-    - To: the name of your Microsoft Account
+    - To:  the primary e-mail address of your Microsoft Account
 
     - Subject: type **Resource updated:** and, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Subject**.
 
-    - Body: in the **Dynamic Content** column to the right of the **Send an email** pane, click **See more**. Next, type **Resource group:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Topic**, type **Event type:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Type**, type **Event ID:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event ID**, type **Event Time:**, and in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Time**.
+    - Body: type **Resource group:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Topic**, type **Event type:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Type**, type **Event ID:**, in the **Dynamic Content** column to the right of the **Send an email** pane, click **ID**, type **Event Time:**, and in the **Dynamic Content** column to the right of the **Send an email** pane, click **Event Time**.
 
 
 #### Task 3: Identify the callback URL of the Azure logic app
 
-1. In the Azure portal, navigate to the **logicapp3000701** blade and, in the **Summary** section, click **See trigger history**.
+1. In the Azure portal, navigate to the **logicapp3000701** blade and, in the **Summary** section, click **See trigger history**. Ignore any **Forbidden** error messages.
 
 1. On the **When_a_resource_event_occurs** blade, copy the value of the **Callback url [POST]** text box.
 
@@ -234,9 +235,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, navigate to the **az3000701-LabRG** resource group and, in the vertical menu, click **Events**.
 
-1. On the **az3000701-LabRG - Events** blade, click **Web Hook**.
+1. On the **az3000701-LabRG - Events** blade, select **Get Started** and click **Web Hook**.
 
-1. On the **Create Event Subscription** blade, clear the **Subscribe to all event types** checkbox and, in the **Defined Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
+1. On the **Create Event Subscription** blade, in the **Filter to Event Types** drop down list, ensure that only the checkboxes next to the **Resource Write Success** and **Resource Delete Success** are selected.
 
 1. In the **Endpoint Type** drop down list, ensure that **Web Hook** is selected and click the **Select an endpoint** link. 
 
@@ -255,10 +256,39 @@ The main tasks for this exercise are as follows:
 
 1. On the storage account blade, in the vertical menu, click **Configuration**.
 
-1. On the configuration blade, set the **Secure transfer required** setting to **Disabled**
+1. On the configuration blade, set the **Secure transfer required** setting to **Disabled** and click **Save**
 
 1. Navigate to the **logicapp3000701** blade, click **Refresh**, and note that the **Runs history** includes the entry corresponding to configuration change of the Azure storage account.
 
 1. Navigate to the inbox of the email account you configured in this exercise and verify that includes an email generated by the logic app.
 
 > **Result**: After you completed this exercise, you have configured an Azure logic app to monitor changes to a resource group.
+
+
+## Exercise 3: Remove lab resources
+
+#### Task 1: Open Cloud Shell
+
+1. At the top of the portal, click the **Cloud Shell** icon to open the Cloud Shell pane.
+
+1. If needed, switch to the Bash shell session by using the drop down list in the upper left corner of the Cloud Shell pane.
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to list all resource groups you created in this lab:
+
+   ```
+   az group list --query "[?starts_with(name,'az30007')]".name --output tsv
+   ```
+
+1. Verify that the output contains only the resource groups you created in this lab. These groups will be deleted in the next task.
+
+#### Task 2: Delete resource groups
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to delete the resource groups you created in this lab
+
+   ```sh
+   az group list --query "[?starts_with(name,'az30007')]".name --output tsv | xargs -L1 bash -c 'az group delete --name $0 --no-wait --yes'
+   ```
+
+1. Close the **Cloud Shell** prompt at the bottom of the portal.
+
+> **Result**: In this exercise, you removed the resources used in this lab.
