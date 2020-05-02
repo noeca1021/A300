@@ -58,9 +58,9 @@ The main tasks for this exercise are as follows:
 
 1. Note the value of the `<custom-label>` that resulted in the successful outcome. You will need it in the next task.
 
-1. From the lab virtual machine, start Microsoft Edge and browse to the Azure QuickStart template that deploys autoscale demo app on Ubuntu 16.04 at [**https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale**](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale).
+1.  On the lab computer, in the Azure portal, search for and select **Template deployment (deploy using custom template)**.
 
-1. Click **Deploy to Azure** and, when prompted, sign in by using the Microsoft account that has the Owner role in the target Azure subscription.
+1.  On the **Custom deployment** blade, in the **Select a template (disclaimer)** drop-down list, type **201-vmss-bottle-autoscale** and click **Select template**.
 
 1. In the Azure Portal, on the **Deploy VM Scale Set with Python Bottle server & AutoScale** blade, specify the following settings and initiate the deployment:
 
@@ -70,7 +70,7 @@ The main tasks for this exercise are as follows:
 
    - Location: the name of the Azure region that you referenced when running `Test-AzDnsAvailability` earlier in this task
 
-   - Vm Sku: **Standard_D1_v2**
+   - Vm Sku: **Standard_D2s_v3**
 
    - Vmss Name: the custom label you identified when running `Test-AzDnsAvailability` earlier in this task
 
@@ -94,13 +94,13 @@ The main tasks for this exercise are as follows:
 
 1. Note that the Azure VM scale set is configured to scale dynamically based on a metric using the following criteria:
 
-   - Scale out: increase instance count by 1 when average percentage of CPU > 60
+   - Scale out: increase instance count by 1 when average percentage of CPU > 40
 
-   - Scale in: decrease instance count by 1 when average percentage of CPU < 30
+   - Scale in: decrease instance count by 1 when average percentage of CPU < 20
 
    - Minimum number of instances: 1
 
-   - Maximum number of instances: 10
+   - Maximum number of instances: 3
 
 1. Modify the maximum number of instances to 3 and **save** your changes.
 
@@ -137,13 +137,14 @@ The main tasks for this exercise are as follows:
 1. Navigate to the **Alerts** blade.
 
 1. From the **Alerts** blade, navigate to the **New alert rule** blade.
+
 1. In the **Resource** section, select the VM scale set you provisioned in the previous exercise of this lab.
 
-1. In the **Condition** section, click **Add condition**, select the **Percentage CPU** metric, leave the dimension settings and condition type with their default values, set the condition to **Greater than**, set the type aggregation to **Average**, set the threshold to **60**, set the Aggregation granularity (period) to **1 minute**, set the frequency to **Every 1 minute** and click **done**.
+1. In the **Condition** section, click **Add condition**, select the **Percentage CPU** metric, leave the dimension settings and condition type with their default values, set the condition to **Greater than**, set the type aggregation to **Average**, set the threshold to **40**, set the Aggregation granularity (period) to **1 minute**, set the frequency to **Every 1 minute** and click **done**.
 
 1. In the **Actions** section, click **Select action group**, select previously created action group **az30001 action group** and click **done**.
 
-1. In the **Alert Details** section, set the alert rule name to **Percentage CPU of the VM scale set is greater than 60 percent**, its description to **Percentage CPU of the VM scale set is greater than 60 percent**, its severity to **Sev 3**, and set enable rule upon creation to **Yes**.
+1. In the **Alert Details** section, set the alert rule name to **Percentage CPU of the VM scale set is greater than 40 percent**, its description to **Percentage CPU of the VM scale set is greater than 40 percent**, its severity to **Sev 3**, and set enable rule upon creation to **Yes**.
 
 1. Click **Create alert rule**.
 
