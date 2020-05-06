@@ -137,7 +137,7 @@ The main tasks for this exercise are as follows:
 
    ```pwsh
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   Install-Module -Name PowerShellGet -AllowPrerelease -SkipPublisherCheck
+   Install-Module -Name PowerShellGet -SkipPublisherCheck
    ```
 
 1. From the PowerShell prompt, run the following to install the the pre-release version of the AzureRM.ManagedServiceIdentity module:
