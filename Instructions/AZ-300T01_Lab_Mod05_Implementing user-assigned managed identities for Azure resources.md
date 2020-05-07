@@ -170,7 +170,7 @@ The main tasks for this exercise are as follows:
    (Get-AzVM -ResourceGroupName az3000501-LabRG -Name az3000501-vm).Identity
    ```
 
-    > **Note**: If you receive an error message indicating insufficient privileges, from the PowerShell prompt, run
+     > **Note**: If you receive an error message indicating insufficient privileges, from the PowerShell prompt, run
    
    ```pwsh
    Remove-AzAccount
