@@ -69,7 +69,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy a pair of Azure VMs hosting Windows Server 2016 Datacenter by running:
 
    ```
-   az group deployment create --resource-group az3000801-LabRG --template-file azuredeploy0801.json --parameters @azuredeploy0801.parameters.json
+   az deployment group create --resource-group az3000801-LabRG --template-file azuredeploy0801.json --parameters @azuredeploy0801.parameters.json
    ```
 
     > **Note**: Wait for the deployment before you proceed to the next task. This might take about 10 minutes.
@@ -305,7 +305,7 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, deploy a pair of Azure VMs hosting Windows Server 2016 Datacenter by running:
 
    ```
-   az group deployment create --resource-group az3000801-LabRG --template-file azuredeploy0802.json --parameters @azuredeploy0802.parameters.json
+   az deployment group create --resource-group az3000801-LabRG --template-file azuredeploy0802.json --parameters @azuredeploy0802.parameters.json
    ```
 
     > **Note**: Wait for the deployment before you proceed to the next task. This might take about 5 minutes.
