@@ -60,6 +60,9 @@ The main tasks for this exercise are as follows:
 
    ```
    az group create --resource-group az3000401-LabRG --location <Azure region>
+   ```
+
+   ```
    az group create --resource-group az3000402-LabRG --location <Azure region>
    ```
 
@@ -182,19 +185,45 @@ The main tasks for this exercise are as follows:
 
     - Password: **Pa55w.rd1234**
 
-1. Once you are connected to az3000401-vm2 via the Remote Desktop session, from **Server Manager**, install the **Remote Access** server role with the **Routing** role service and all required features. 
+1. Once you are connected to az3000401-vm2 via the Remote Desktop session, install the **Remote Access** role. In Server Manager, click **Manage**, and then click **Add roles and features**.
 
-1. In the Remote Desktop session to az3000401-vm2, start the **Routing and Remote Access** console. 
+1. On the Before you Begin screen, click **Next**.
+
+1. On the Installation Type screen, leave the default **Role-based or feature-based installation** selected and click **Next**.
+
+1. On the Server Selection screen, leave the default server selected and click **Next**.
+
+1. On the Server Roles screen, place a checkmark next to **Remote Access** and then click **Next**.
+
+1. On the Features screen, leave the defaults selected and then click **Next**.
+
+1. On the Remote Acces screen, click **Next**.
+
+1. On the Services screen, place a checkmark next to **Routing** and then click **Next**.
+
+1. On the Confirmation screen, click **Next**.
+
+1. On the Results screen, click **Install**.
+
+1. In the Remote Desktop session to az3000401-vm2, from Server Manager, click **Tools** and then click  **Routing and Remote Access** to open the RRAS console. 
 
 1. In the **Routing and Remote Access** console, right click under the name of the server az3000401-vm2 and select **Configure and Enable Routing and Remote Access** to run the **Routing and Remote Access Server Setup Wizard**.
 
 1. In the **Routing and Remote Access Server Setup Wizard**, select **Custom configuration** under **Configuration** and enable **LAN routing**. 
 
+> **Note**: If you receive a warning pop-up, click **OK**.
+
 1. Start **Routing and Remote Access** service.
 
-1. In the Remote Desktop session to az3000401-vm2, start the **Windows Firewall with Advanced Security** console and enable **File and Printer Sharing (Echo Request - ICMPv4-In)** inbound rule for all profiles.
+1. In the Remote Desktop session to az3000401-vm2, click start and then click **Windows Administrative Tools**.
 
-> **Result**: After completing this exercise, you should have configured custom routing within the second virtual network.
+1. From Administrative Tools, launch the **Windows Firewall with Advanced Security** console.
+
+1. In the console, click **Inbound Rules**.
+
+1. Locate the **File and Printer Sharing (Echo Request - ICMPv4-In)** inbound rule, right-click the rule and click **Enable Rule**.
+
+> **Result**: After completing this exercise, you have configured custom routing within the second virtual network.
 
 
 ## Exercise 4: Validating service chaining
