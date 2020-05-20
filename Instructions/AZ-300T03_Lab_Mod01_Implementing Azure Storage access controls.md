@@ -142,6 +142,8 @@ The main tasks for this exercise are as follows:
 
     - Expiry time: current date and time + 24 hours
 
+1. Click **OK** to create the Policy, and then click **Save**.
+
 1. In the Azure portal, in the Microsoft Edge window, start a **PowerShell** session within the **Cloud Shell**. 
 
 1. If you are presented with the **You have no storage mounted** message, configure storage using the following settings:
