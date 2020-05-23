@@ -122,7 +122,7 @@ The main tasks for this exercise are as follows:
    ```sh
    export FUNCTION_NAME="az300t06f${PREFIX}"
 
-   az functionapp create --name "${FUNCTION_NAME}" --resource-group "${RESOURCE_GROUP_NAME}" --storage-account "${STORAGE_ACCOUNT_NAME}" --consumption-plan-location "${LOCATION}"
+   az functionapp create --name "${FUNCTION_NAME}" --resource-group "${RESOURCE_GROUP_NAME}" --storage-account "${STORAGE_ACCOUNT_NAME}" --consumption-plan-location "${LOCATION}" --runtime "dotnet"
    ```
 
 1. From the Cloud Shell pane, run the following to configure Application Settings of the newly created function, linking it to the Application Insights and Azure Storage account:
@@ -136,8 +136,6 @@ The main tasks for this exercise are as follows:
 1. Switch to the Azure portal and navigate to the blade of the Azure Function app you created earlier in this task.
 
 1. On the Azure Function app blade, click **Functions** and then, click **+ New function**. 
-
-1. On the **Function App runtime stack** blade, ensure that the **.NET** entry appears in the **Function Runtime stack** drop down list and click **Go**.
 
 1. On the **Choose a template below or go to the quickstart** blade, click **Azure Blob Storage trigger** template.
 
