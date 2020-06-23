@@ -16,11 +16,11 @@
     },
     "windowsOSVersion": {
       "type": "string",
-      "defaultValue": "2016-Datacenter-Server-Core-smalldisk",
+      "defaultValue": "2019-Datacenter-Server-Core-smalldisk",
       "allowedValues": [
-        "2016-Datacenter",
-        "2016-Datacenter-Server-Core",
-        "2016-Datacenter-Server-Core-smalldisk"
+        "2019-Datacenter",
+        "2019-Datacenter-Server-Core",
+        "2019-Datacenter-Server-Core-smalldisk"
       ],
       "metadata": {
         "description": "The Windows version for the VM."
