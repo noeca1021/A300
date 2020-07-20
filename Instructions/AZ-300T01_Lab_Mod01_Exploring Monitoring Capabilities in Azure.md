@@ -94,9 +94,9 @@ The main tasks for this exercise are as follows:
 
 1. Note that the Azure VM scale set is configured to scale dynamically based on a metric using the following criteria:
 
-   - Scale out: increase instance count by 1 when average percentage of CPU > 40
+   - Scale out: increase instance count by 1 when average percentage of CPU > 60
 
-   - Scale in: decrease instance count by 1 when average percentage of CPU < 20
+   - Scale in: decrease instance count by 1 when average percentage of CPU < 30
 
    - Minimum number of instances: 1
 
@@ -144,7 +144,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Actions** section, click **Select action group**, select previously created action group **az30001 action group** and click **done**.
 
-1. In the **Alert Details** section, set the alert rule name to **Percentage CPU of the VM scale set is greater than 60 percent**, its description to **Percentage CPU of the VM scale set is greater than 40 percent**, its severity to **Sev 3**, and set enable rule upon creation to **Yes**.
+1. In the **Alert Details** section, set the alert rule name to **Percentage CPU of the VM scale set is greater than 60 percent**, its description to **Percentage CPU of the VM scale set is greater than 60 percent**, its severity to **Sev 3**, and set enable rule upon creation to **Yes**.
 
 1. Click **Create alert rule**.
 
