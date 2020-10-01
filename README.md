@@ -1,8 +1,8 @@
 **What are we doing?**
 
-*	We are publishing the lab instructions and lab files on GitHub to allow for interaction between the course authors and MCTs. We hope this will help  keep the content current as the Azure platform changes.
+*	We are publishing the lab instructions and lab files on GitHub to allow for interaction between the course authors and MCTs. We hope this will help keep the content current as of the Azure platform changes.
 
-*	There is a GitHub repository for the AZ-300, Microsoft Azure Architect Technologies , and AZ-301, Microsoft Azure Architect Design, courses.
+*	There is a GitHub repository for the AZ-300, Microsoft Azure Architect Technologies, and AZ-301, Microsoft Azure Architect Design, courses.
 
 *	Within each repository there are lab guides in PDF format. If appropriate, there are accompanying zipped files with any additional files that are needed to complete the lab. Not every course has a zipped file. 
 
